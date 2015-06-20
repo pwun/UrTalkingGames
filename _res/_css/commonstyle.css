@@ -1,0 +1,29 @@
+header{
+     margin-bottom: 5%;
+}
+
+h1{
+  text-align:center;
+      
+}
+nav{
+  border-style: solid;
+  width:10%;
+  height:40%;
+  float:left;
+    margin-top: 5%;
+  
+}
+#canvas{
+    border-style: solid;
+    background: #FF9966;
+    width: 60%;
+    float:right;
+    margin-right: 10%;
+    margin-top: 5%;
+  
+}
+#logo{
+    zoom:70%;
+    float: left;
+}
