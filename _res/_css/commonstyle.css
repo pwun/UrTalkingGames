@@ -9,7 +9,7 @@ h1{
 }
 nav{
   border-style: solid;
-  width:10%;
+  width:20%;
   height:40%;
   float:left;
     margin-top: 5%;
@@ -19,9 +19,8 @@ nav{
 #canvas{
     
     background: #dadada;
-    width: 60%;
+    width: 70%;
     float:right;
-    margin-right: 10%;
     margin-top: 5%;
     
     border: 3px solid #FF9966;
