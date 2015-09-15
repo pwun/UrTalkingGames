@@ -6,6 +6,7 @@ levelManager = (function() {
         and = null,
         or = null,
         not = null,
+        dropCounter = 0;
         
     init = function() { 
        canvas=document.getElementById("canvas");
@@ -16,7 +17,7 @@ levelManager = (function() {
        if(currentLevel == 1){
            prepareTools(2,1,2);
        }
-       $('#canvas').on('click', function(){ prepareTools(0,1,5);});
+       //$('#canvas').on('click', function(){ prepareTools(0,1,5);});
     },
         
     prepareTools = function(ta,to,tn){
@@ -44,10 +45,19 @@ levelManager = (function() {
     },
 
     drop = function (ev) {
+        dropCounter+=1;
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
        // ev.target.appendChild(data);
-        ev.target.innerHTML +='<img id="'+data+'" alt="'+data+'" class="scale" src="_res_BURL/'+data+'.png/" draggable="true" ondragstart="drag(event)">';
+        var img = new Image();
+        img.src = "_res_BURL/"+data+".png/";
+        var id = 'drop'+dropCounter;
+        img.setAttribute('id',id);
+        img.setAttribute('class','scale');
+        ev.target.appendChild(img);
+        $(document).on('click','#'+id,function(){
+            ev.target.removeChild(img);
+        });
         
     }
     ;

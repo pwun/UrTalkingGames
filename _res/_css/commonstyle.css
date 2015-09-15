@@ -33,7 +33,8 @@ nav{
     box-shadow: 0 0  20px #FF9966;
 }
 #logo{
-  zoom:70%;
+  cursor:pointer;
+  zoom:50%;
   float: left;
 }
  
