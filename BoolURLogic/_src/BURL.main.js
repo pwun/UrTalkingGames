@@ -7,25 +7,22 @@
 
 Game = (function() {
     var that = {},
-        myString = "Hier Klicken",
+        myString = "Hier bitte die Gatter links verschieben",
         canvas = null,
         ctx = null,
          
         
     init = function() {
+       // _initCanvas();
+        levelManager.init();
+    },
+        
+    _initCanvas = function(){
         canvas = document.getElementById('canvas');
         canvas.height = (canvas.width/16)*9;
         ctx = canvas.getContext("2d");
         ctx.fillText(myString, 20,20);
-        ctx.font = "20px Verdana"
-        
-        
-        
-        
-        
-        
-        
-        $('#canvas').on('click', _handleClick);
+        ctx.font = "20px Verdana";
     },
     
     _handleClick = function(e) { 
