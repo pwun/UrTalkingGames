@@ -3,10 +3,8 @@ var BoolURLogic = (function() {
         canvas, 
         
     init = function() { 
-        canvas = document.getElementById('canvas');
         
-        canvas.height = (canvas.width/16)*9;
-         
+        Game.init(); 
          
     }
     ;

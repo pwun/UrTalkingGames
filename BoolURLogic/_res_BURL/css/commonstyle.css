@@ -1,7 +1,3 @@
-body {
-    background-image: url(../_img/debut_light.png);
-}
-
 header{
      margin-bottom: 5%;
 }
@@ -13,6 +9,8 @@ h1{
 }
 nav{
   border-style: solid;
+  font-size: 28px;
+  text-decoration: underline;
   width:20%;
   height:40%;
   float:left;
@@ -21,12 +19,6 @@ nav{
   
 }
 #canvas{
- 
-    
-    background: #dadada;
-    border: 3px solid #FF9966;
-    border-radius: 7px; 
- 
   background: #dadada;
   width: 70%;
   height:50%;
@@ -42,7 +34,12 @@ nav{
   min-height: 60px;
   border: 3px solid #999999;
   border-radius: 7px; 
- }
+}
+.possibleDrop:hover{
+    outline: inherit;
+    border-color: #0000DD;
+    box-shadow: 0 0  2px #0099DD;
+}
 
 #canvas:hover{
     outline: inherit;
@@ -50,11 +47,13 @@ nav{
     box-shadow: 0 0  20px #FF9966;
 }
 #logo{
-      float: left;
-   cursor:pointer;
-  zoom:50%;
-  float: left;
- }
+    cursor:pointer;
+    height: 50%;
+    float: left;
+}
+#logo:hover{
+    height:150%;
+}
  
 /*menu css*/
 @import "compass/css3";
@@ -62,9 +61,6 @@ nav{
 html {
   width: 100% ;
   height: 100% ;
- /* background: radial-gradient(center, #FFF 0%, #CCC 70%, #CCC 100%) no-repeat;
-  background: -moz-radial-gradient(center, #FFF 0%, #CCC 70%, #CCC 100%) no-repeat;
-  background: -webkit-radial-gradient(center, #FFF 0%, #CCC 70%, #CCC 100%) no-repeat;*/
 }
 
 .commander {
@@ -113,84 +109,22 @@ html {
   width: 100%;
 }
 
-/* for the list to be horizontaly centered */
-.table {
-  display: table;
-  margin: 0 auto;
-}
 
-.menu__list {
-  text-align: center;
-  width: 100%;
-  padding-left: 0;
-}
 
-/* Animation keyframes for the drop down */
-@keyframes drop {
-  from {
-    top: 0px;
-  }
-  70% {
-    top: 165px;
-    animation-timing-function: ease-in;
-  }
-  to {
-    top: 150px;
-    animation-timing-function: ease-out;
-  }
-}
-@-webkit-keyframes drop {
-  from {
-    top: 0px;
-  }
-  70% {
-    top: 165px;
-    -webkit-animation-timing-function: ease-in;
-  }
-  to {
-    top: 150px;
-    -webkit-animation-timing-function: ease-out;
-  }
-}
- 
 li {
+  font-size: 22px;
+  text-decoration: none;
+  color: grey;
   position: relative;
   list-style: none;
   padding-bottom: 15px;
   top: 0px;
+  cursor: pointer;
+}
+li:hover{
+    color:#DD0900;
 }
 
-li a {
-  text-decoration: none;
-  color: grey;
-  text-align: center;
-  font-size: 1.5em;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.menu__list__item {
-  opacity: 0;
-}
-
-/*Animation classes to add to list-items that should be animated*/
-.list--animation, .list--animation--delay1, .list--animation--delay2 {
-  animation: drop 0.9s;
-  -webkit-animation: drop 0.9s;
-  animation-fill-mode: forwards;
-  opacity: 1;
-  -webkit-animation-fill-mode: forwards;
-  opacity: 1;
-}
-
-.list--animation--delay1 {
-  animation-delay: 0.5s;
-  -webkit-animation-delay: 0.5s;
-}
-
-.list--animation--delay2 {
-  animation-delay: 1s;
-  -webkit-animation-delay: 1s;
-}
 
 #game{
     width:70%;
@@ -206,12 +140,27 @@ li a {
 #tools{
 }
 
+#icon{
+    margin-top:15px;
+}
+
 .icon{
     margin:5px;
     cursor:pointer;
     align:middle;
     border: 3px solid #FF9966;
     border-radius: 2px; 
+}
+.icon:hover{
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+
+    transform: rotate(20deg);
+    outline: inherit;
+    border-color: #0000DD;
+    box-shadow: 0 0  2px #0099DD;
 }
 
 .right{
@@ -233,7 +182,7 @@ li a {
 }
 
 .scale{
-   width: 60px;
+    width: 60px;
     height: 60px; 
 }
 
@@ -252,4 +201,11 @@ li a {
     display:none;
 }
 
- 
+
+
+.pleasedontfloat { 
+    clear:left;
+}
+
+
+

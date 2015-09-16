@@ -2,28 +2,51 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>URGaming</title> 
-        <link rel="stylesheet" href="../_res/_css/commonstyle.css">
+        <title>URGaming - Bool UR Logic</title> 
+        <link rel="stylesheet" href="_res_BURL/css/commonstyle.css">
 		 
     </head>
     
     <body>
         <header>
         <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
-        <h1>DesignURChar</h1>
+        <h1>Bool UR Logic</h1>
         </header>
-        
         <nav>Menue
-            <ul>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li></ul>
+                <ul>
+                    <li>CheckURJava</li>
+                    <li>DesignURChar</li>
+                    <li>ProoveURselfGoogle</li>
+                </ul>
         </nav>
-        <canvas id="canvas"></canvas> 
-        
-        
+        <div id="game">
+                <h2 id="winString" class="hide">Sie haben das Level gewonnen. Viel Spaß beim nächsten</h2>
+                <div id="canvas">
+                    <img id="icon" alt="icon" class="icon scale rotation right" src="../_res/_img/basic_icon.png">
+                    <div class="hide" id="level1">
+                        <div id="1-level1" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="2-level1" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                    <div class="hide" id="level2">
+                        <div id="1-level2" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="2-level2" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="3-level2" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                    <div class="hide" id="level3"></div>
+                    <div class="hide" id="level4"></div>
+                    <div class="hide" id="level5"></div>
+                </div>
+                <div id="toolBox">
+                     <p>Hier die möglichen Gatter</p>
+                     <div id="tools"></div>
+                </div>
+        </div>
     </body>
     <script src="_src/BoolURLogic.js"></script>
+    <script src="_src/BURL.main.js"></script>
+    <script src="_src/levelChecker.js"></script>
+    <script src="_src/levelManager.js"></script>
+    <script src="_src/winChecker.js"></script>
 	<script src="../_libs/jquery-2.1.4.js"></script>  
 
 
