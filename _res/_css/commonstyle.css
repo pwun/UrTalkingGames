@@ -1,3 +1,7 @@
+body {
+    background-image: url(../_img/debut_light.png);
+}
+
 header{
      margin-bottom: 5%;
 }
@@ -19,11 +23,6 @@ nav{
 #canvas{
     
     background: #dadada;
-    width: 60%;
-    float:right;
-    margin-right: 10%;
-    margin-top: 5%;
-    
     border: 3px solid #FF9966;
     border-radius: 7px; 
   
@@ -34,8 +33,7 @@ nav{
     box-shadow: 0 0  20px #FF9966;
 }
 #logo{
-    zoom:70%;
-    float: left;
+     float: left;
 }
  
 /*menu css*/
@@ -135,41 +133,4 @@ html {
   }
 }
 
-li {
-  position: relative;
-  list-style: none;
-  padding-bottom: 15px;
-  top: 0px;
-}
-
-li a {
-  text-decoration: none;
-  color: grey;
-  text-align: center;
-  font-size: 1.5em;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.menu__list__item {
-  opacity: 0;
-}
-
-/*Animation classes to add to list-items that should be animated*/
-.list--animation, .list--animation--delay1, .list--animation--delay2 {
-  animation: drop 0.9s;
-  -webkit-animation: drop 0.9s;
-  animation-fill-mode: forwards;
-  opacity: 1;
-  -webkit-animation-fill-mode: forwards;
-  opacity: 1;
-}
-
-.list--animation--delay1 {
-  animation-delay: 0.5s;
-  -webkit-animation-delay: 0.5s;
-}
-
-.list--animation--delay2 {
-  animation-delay: 1s;
-  -webkit-animation-delay: 1s;
-}
+  

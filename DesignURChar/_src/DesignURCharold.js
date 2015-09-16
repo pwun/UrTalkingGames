@@ -1,17 +1,22 @@
-var DesignURChar = (function() {
+
+var DesignURCharold = (function() {
     var that = {},
         canvas, 
+        webconsole,
         
     init = function() {
         _initCanvas();
         _initMenu();
+        _initConsole();
+        console.log("fuuuuuuuuck U");
         
          
     },
     _initCanvas = function() {
-    canvas = document.getElementById('canvas');
+        canvas = document.getElementById('canvas');
         
         canvas.height = (canvas.width/16)*9;
+        console.log(canvas.height);
       },
     _initMenu = function() {
     
@@ -37,11 +42,15 @@ $('.button').click(function() {
     $('.menu__list').addClass('hidden');
   }
   
-});
-  
+        });    
+    },
         
-    }
-    ;
+    _initConsole = function() {
+        webconsole = $('#console');
+            
+        webconsole.text( "xD");
+       console.log(webconsole   );
+    };
 
     that.init = init;
     return that;

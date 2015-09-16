@@ -3,49 +3,68 @@
     <head>
         <meta charset="utf-8">
         <title>URGaming</title> 
-         <link rel="stylesheet" href="../_res/_css/commonstyle.css">
-		 
+         <link rel="stylesheet" href="_res/chardesign.css">
+        <link rel="stylesheet" href="../_res/_css/gridiculous.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> 
     </head>
     
     <body>
-        <header>
-        <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
-        <h1>DesignURChar</h1>
-        </header>
+         <header class="row">
+        <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#" class="c3"/>
+        <h1 class="c3 s2">DesignURChar</h1>
+         </header>
+        
+        
         <article>
-      <div class="wrapper">  
-        <div class="commander"><p>menu!</p></div>
-  
-    
-    <div class="menu">
-      <div class="table">
-        
-        <ul class="menu__list hidden">
-          <li class="menu__list__item item1"><a href="#">Home</a></li>
-          <li class="menu__list__item item2"><a href="#">Portfolio</a></li>
-          <li class="menu__list__item item3"><a href="#">About</a></li>
-        </ul>
-      
-      </div>
-    </div>
-    <div class="button">
-      <div class="line line__first"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div> 
-  </div>
-        
-    
-   <canvas id="canvas"></canvas> 
-</div>    
+        <div class="row">
+        <canvas id="canvas" class="c5 s3" width="525" height="245">HTML5-Canvas not supported, pls try a different browser...</canvas> 
+        <div id="toolbox" class="c3 s1">
             
+            <div id="colors" class="row"> Colors
+                <div class="row">
+            <span class="color red active"></span>
+            <span class="color blue"></span></div>
+                
+            <div class="row">    
+            <span class="color green"></span>
+                <span class="color yellow"></span></div>
+    
+            
+            </div>
+            <div id="shapes" class="row">  Shapes
+            <div class="row">
+            <span class="shape circle"></span>
+            <span class="shape rect"></span></div>    
+            <div class="row">    
+            <span class="shape triangle"></span>
+            <span class="shape star"></span></div>    
+            </div>
+            
+            <div id="options" class="row">
+            <button class="option" id="saveButton">Save img</button>
+            <button class="option">Quit</button>
+            </div>
+            </div>
+            </div>
+        <footer class="row c5 s3" id="userConsole">>>console<<</footer>
+    
         
         </article>
+    
         
     </body>
-    <script src="_src/DesignURChar.js"></script>
-	<script src="../_libs/jquery-2.1.4.js"></script>  
+    
+    <script src="../_libs/jquery-2.1.4.js"></script>  
+    <script src="_libs/pouchdb-4.0.1.min.js"></script>
 
+    
+    <script src="_src/DesignURChar.js"></script>
+    <script src="_src/CanvasController.js"></script>
+    <script src="_src/ConsoleController.js"></script>
+    <script src="_src/UIController.js"></script>
+    <script src="_src/DatabaseController.js"></script>
+	
 
 	<script>
         $(function() { 
