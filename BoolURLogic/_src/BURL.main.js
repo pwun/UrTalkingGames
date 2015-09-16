@@ -15,7 +15,7 @@ Game = (function() {
     init = function() {
        // _initCanvas();
         $('#logo').on('click', function(){ location.reload();});
-        levelManager.init();
+        levelChecker.init();
     },
         
     _initCanvas = function(){

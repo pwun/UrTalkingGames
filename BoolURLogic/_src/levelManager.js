@@ -1,38 +1,29 @@
 levelManager = (function() {
     var that = {},
-        canvas = null,
-        ctx = null,
-        currentLevel = 1,
         and = null,
         or = null,
         not = null,
-        dropCounter = 0;
+        dropCounter = 1;
         
     init = function() { 
-       canvas=document.getElementById("canvas");
-       //ctx=canvas.getContext('2d');
-       and = '<img id="and" alt="and" class="icon scale" src="_res_BURL/and.png/" draggable="true" ondragstart="drag(event)">';
-       or = '<img id="or" alt="or" class="icon scale" src="_res_BURL/or.png/" draggable="true" ondragstart="drag(event)">';
-       not = '<img id="not" alt="not" class="icon scale" src="_res_BURL/not.png/" draggable="true" ondragstart="drag(event)">';
-       if(currentLevel == 1){
-           prepareTools(2,1,2);
-       }
-       //$('#canvas').on('click', function(){ prepareTools(0,1,5);});
+       and = '<img id="and" alt="and" class="icon scale left" src="_res_BURL/and.png/" draggable="true" ondragstart="drag(event)">';
+       or =  '<img id="or"  alt="or"  class="icon scale left" src="_res_BURL/or.png/"  draggable="true" ondragstart="drag(event)">';
+       not = '<img id="not" alt="not" class="icon scale left" src="_res_BURL/not.png/" draggable="true" ondragstart="drag(event)">';
     },
         
     prepareTools = function(ta,to,tn){
          $('#tools').empty();
          if(ta > 0){
+           $('#tools').append('<div id="andCount" class="number-icon scale pleasedontfloat">'+ta+'</div>');
            $('#tools').append(and);
-           $('#tools').append('<div class="number-icon scale">'+ta+'</div>');
          }
          if(to > 0){
+           $('#tools').append('<div id="orCount" class="number-icon scale pleasedontfloat">'+to+'</div>');
            $('#tools').append(or);
-           $('#tools').append('<div class="number-icon scale">'+to+'</div>');
          }
         if(tn > 0){
+           $('#tools').append('<div id="notCount" class="number-icon scale pleasedontfloat">'+tn+'</div>');
            $('#tools').append(not);
-           $('#tools').append('<div class="number-icon scale">'+tn+'</div>');
         }
     }
         
@@ -41,27 +32,76 @@ levelManager = (function() {
     },
 
     drag = function (ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
+        ev.dataTransfer.setData("info", ev.target.id);
     },
 
     drop = function (ev) {
-        dropCounter+=1;
+        //Init drop
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-       // ev.target.appendChild(data);
-        var img = new Image();
-        img.src = "_res_BURL/"+data+".png/";
-        var id = 'drop'+dropCounter;
-        img.setAttribute('id',id);
-        img.setAttribute('class','scale');
-        ev.target.appendChild(img);
-        $(document).on('click','#'+id,function(){
-            ev.target.removeChild(img);
-        });
         
+        //Check if drop is possible
+        var data = ev.dataTransfer.getData("info"),
+            content = document.getElementById(data+'Count').innerHTML,
+            checkNum = 0;
+        try {checkNum = parseInt(content);}
+        catch(Exeption){}
+        
+        if(checkNum > 0){//if there are still more of this gatter available
+            putGatterIn(ev, data, content, checkNum);
+        }
+        winChecker.init();
+    },
+        
+    putGatterIn = function(ev, data,content, checkNum){
+            //Change the number of the current gatter
+            document.getElementById(data+'Count').innerHTML = --checkNum;
+            
+            //Create new Picture
+            var img = new Image();
+            img.src = "_res_BURL/"+data+".png/";
+            img.setAttribute('alt',data);
+            img.setAttribute('class','scale');
+        
+            //This is just for the click listener
+            var id = 'drop'+ (++dropCounter);
+            img.setAttribute('id',id);
+            
+            if(ev.target.nodeName == "IMG") {// if there is already a picture in,
+                
+                //edit its abailable content
+                var image = document.getElementById(ev.target.id),
+                    alt = image.getAttribute('alt'),
+                    parent = image.parentNode,
+                    contentOld = document.getElementById(alt+'Count').innerHTML,
+                    checkNumOld = 0;
+                try {checkNumOld = parseInt(contentOld);}
+                catch(Exeption){};
+                document.getElementById(alt+'Count').innerHTML = (++checkNumOld);
+                
+                //Remove old gatter
+                parent.removeChild(parent.firstChild);
+                
+                //Add new gatter
+                appender(parent, img, checkNum, id, data);
+            }
+            else{// if there is nothing in the target
+                
+                appender(ev.target, img, checkNum, id, data);
+            }
+    },    
+        
+        
+    appender = function(parent, img, checkNum, id, data){
+                parent.appendChild(img);
+                $(document).on('click','#'+id,function(){
+                    console.log("remove");
+                    parent.removeChild(img);
+                    document.getElementById(data+'Count').innerHTML = ++checkNum;
+                });
     }
     ;
 
+    that.prepareTools = prepareTools;
     that.init = init;
     return that;
 })();
