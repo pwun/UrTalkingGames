@@ -14,16 +14,16 @@ levelManager = (function() {
     prepareTools = function(ta,to,tn){
          $('#tools').empty();
          if(ta > 0){
-           $('#tools').append('<div id="andCount" class="number-icon scale pleasedontfloat">'+ta+'</div>');
            $('#tools').append(and);
+           $('#tools').append('<div id="andCount" class="number-icon scale margeLeft">'+ta+'</div>');
          }
          if(to > 0){
-           $('#tools').append('<div id="orCount" class="number-icon scale pleasedontfloat">'+to+'</div>');
            $('#tools').append(or);
+           $('#tools').append('<div id="orCount" class="number-icon scale margeLeft">'+to+'</div>');
          }
         if(tn > 0){
-           $('#tools').append('<div id="notCount" class="number-icon scale pleasedontfloat">'+tn+'</div>');
            $('#tools').append(not);
+           $('#tools').append('<div id="notCount" class="number-icon scale margeLeft">'+tn+'</div>');
         }
     }
         
@@ -41,8 +41,10 @@ levelManager = (function() {
         
         //Check if drop is possible
         var data = ev.dataTransfer.getData("info"),
-            content = document.getElementById(data+'Count').innerHTML,
             checkNum = 0;
+        try{var content = document.getElementById(data+'Count').innerHTML;}
+        catch(Exception){return null;}
+            
         try {checkNum = parseInt(content);}
         catch(Exeption){}
         

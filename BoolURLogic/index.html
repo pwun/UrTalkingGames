@@ -9,8 +9,8 @@
     
     <body>
         <header>
-        <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
-        <h1>Bool UR Logic</h1>
+            <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
+            <h1>Bool UR Logic</h1>
         </header>
         <nav>Menue
                 <ul>
@@ -23,27 +23,57 @@
                 <h2 id="winString" class="hide">Sie haben das Level gewonnen. Viel Spaß beim nächsten</h2>
                 <div id="canvas">
                     <img id="icon" alt="icon" class="icon scale rotation right" src="../_res/_img/basic_icon.png">
+                    
+                    <!--Canvas of level one-->
                     <div class="hide" id="level1">
-                        <div id="1-level1" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                        <div id="2-level1" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="placeholder pleasedontfloat"></div>
+                        <div class="placeholder pleasedontfloat"></div>
+                        <div class="placeholder pleasedontfloat"></div>
+                        <div class="placeholder"></div>
+                        <div id="1-level1" class="possibleDrop left one" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="placeholder pleasedontfloat"></div>
+                        <div class="placeholder pleasedontfloat"></div>
+                        <div class="placeholder"></div>
+                        <div class="placeholder"></div>
+                        <div class="placeholder"></div>
+                        <div class="placeholder"></div>
+                        <div class="placeholder"></div>
+                        <div id="2-level1" class="possibleDrop left one" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        
                     </div>
+                    
+                    <!--Canvas of level two-->
                     <div class="hide" id="level2">
-                        <div id="1-level2" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                        <div id="2-level2" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                        <div id="3-level2" class="possibleDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="1-level2" class="possibleDrop two" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="2-level2" class="possibleDrop two" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="3-level2" class="possibleDrop two" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                     </div>
                     <div class="hide" id="level3"></div>
                     <div class="hide" id="level4"></div>
                     <div class="hide" id="level5"></div>
                 </div>
                 <div id="toolBox">
-                     <p>Hier die möglichen Gatter</p>
-                     <div id="tools"></div>
+                     <div class="left  margeLeft">
+                        <p class="tooltext">Level</p>
+                        <div id="level" class="number-icon infos">1</div>
+                     </div>
+                     <div class="left  margeLeft">
+                        <p class="tooltext">Timer</p>
+                        <div id="time" class="number-icon infos">0:00</div>
+                     </div>
+                     <div class="left  margeLeft">
+                        <p class="tooltext">Score</p>
+                        <div id="score" class="number-icon infos">0</div>
+                     </div>
+                     <div class="left">
+                        <p class="tooltext">Hier die möglichen Gatter</p>
+                        <div id="tools"></div>
+                     </div>
                 </div>
         </div>
     </body>
     <script src="_src/BoolURLogic.js"></script>
-    <script src="_src/BURL.main.js"></script>
+    <script src="_src/Game.js"></script>
     <script src="_src/levelChecker.js"></script>
     <script src="_src/levelManager.js"></script>
     <script src="_src/winChecker.js"></script>

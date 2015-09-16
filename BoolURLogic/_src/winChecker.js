@@ -41,7 +41,16 @@ winChecker = (function() {
         levelChecker.setLevel(++currentLevel);
         $("#winString").show();
         $("#winString").delay(3000).hide(0);
-    }    
+        var score = document.getElementById('score').innerHTML,
+            time  = document.getElementById('time').innerHTML,
+            timeNum = Game.getTime(),
+            scoreNum = 0;
+        try {scoreNum = parseInt(score);}
+        catch(Exeption){}
+        scoreNum+=timeNum;
+        $('#score').html(scoreNum);
+        Game.resetTimer();
+    } 
     ;
     
     that.init = init;

@@ -9,6 +9,7 @@ levelChecker = (function() {
     },
         
     setupLevel = function(){
+        document.getElementById('level').firstChild.nodeValue = currentLevel;
         switch(currentLevel){
                case 1: levelManager.prepareTools(2,1,3); break;
                case 2: levelManager.prepareTools(4,2,2); break;
