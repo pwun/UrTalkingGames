@@ -3,15 +3,19 @@ levelManager = (function() {
         and = null,
         or = null,
         not = null,
+        nand = null,
+        nor = null,
         dropCounter = 1;
         
     init = function() { 
        and = '<img id="and" alt="and" class="icon scale left" src="_res_BURL/and.png/" draggable="true" ondragstart="drag(event)">';
        or =  '<img id="or"  alt="or"  class="icon scale left" src="_res_BURL/or.png/"  draggable="true" ondragstart="drag(event)">';
        not = '<img id="not" alt="not" class="icon scale left" src="_res_BURL/not.png/" draggable="true" ondragstart="drag(event)">';
+       nand = '<img id="nand" alt="nand" class="icon scale left" src="_res_BURL/nand.png/" draggable="true" ondragstart="drag(event)">';
+       nor = '<img id="nor" alt="nor" class="icon scale left" src="_res_BURL/nor.png/" draggable="true" ondragstart="drag(event)">';
     },
         
-    prepareTools = function(ta,to,tn){
+    prepareTools = function(ta,to,tn,tna,tno){
          $('#tools').empty();
          if(ta > 0){
            $('#tools').append(and);
@@ -24,6 +28,14 @@ levelManager = (function() {
         if(tn > 0){
            $('#tools').append(not);
            $('#tools').append('<div id="notCount" class="number-icon scale margeLeft">'+tn+'</div>');
+        }
+        if(tna > 0){
+           $('#tools').append(nand);
+           $('#tools').append('<div id="nandCount" class="number-icon scale margeLeft">'+tna+'</div>');
+        }
+        if(tno > 0){
+           $('#tools').append(nor);
+           $('#tools').append('<div id="norCount" class="number-icon scale margeLeft">'+tno+'</div>');
         }
     }
         

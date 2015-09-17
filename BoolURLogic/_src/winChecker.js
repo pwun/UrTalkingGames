@@ -38,7 +38,9 @@ winChecker = (function() {
     },
     
     doWin = function(){
-        levelChecker.setLevel(++currentLevel);
+        setTimeout(function(){
+            levelChecker.setLevel(++currentLevel);
+        }, 2000);
         $("#winString").show();
         $("#winString").delay(3000).hide(0);
         var score = document.getElementById('score').innerHTML,
@@ -50,7 +52,8 @@ winChecker = (function() {
         scoreNum+=timeNum;
         $('#score').html(scoreNum);
         Game.resetTimer();
-    } 
+    }
+    
     ;
     
     that.init = init;

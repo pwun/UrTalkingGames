@@ -6,12 +6,15 @@ header{
 }
 
 #logo{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     cursor:pointer;
     width: 20%;
     float: left;
 }
 #logo:hover{
-    border: 3px solid #FF9966;
+    border: 7px solid #FF9966;
     border-radius: 7px; 
 }
 
@@ -34,14 +37,16 @@ nav{
 }
 #canvas{
   background: #dadada;
-  min-height: 720px;
-  min-width: 1280px;
+  height: 720px;
+  width: 1280px;
   right:0;
   border: 3px solid #FF9966;
   border-radius: 7px; 
 }
 .possibleDrop{
-  margin:5px;    
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;  
   width: 60px;
   height: 60px;
   border: 3px solid #999999;
@@ -140,8 +145,7 @@ li:hover{
 }
 
 #toolBox{
-    right:0
-    width: 25%;
+    right:0;
     margin-left: 5px;
 }
 
@@ -218,7 +222,9 @@ li:hover{
     display:none;
 }
 
-
+.nextline{
+    
+}
 
 .pleasedontfloat { 
     clear:left;
@@ -228,7 +234,6 @@ li:hover{
     float:left;
     height: 60px;
     width: 60px;
-    margin:5px; 
 }
 
 #score{
@@ -272,6 +277,12 @@ li:hover{
 
 .margeLeft{
     margin-right: 30px;
+}
+
+#winString{
+    color:#DD0000;
+    font-size: 30px;
+    text-decoration: underline;
 }
 
 
