@@ -6,7 +6,10 @@ winChecker = (function() {
     init = function() { 
         getLevel();
         setupWin();
-        if(levelWon)doWin();
+        if(levelWon){
+            if(currentLevel<5)doWin();
+            else doAbsoluteWin();
+        }
     },
         
     getLevel = function(){
@@ -17,22 +20,33 @@ winChecker = (function() {
     setupWin = function(){
         switch(currentLevel){
                case 1:  if(( document.getElementById('1-level1').childElementCount > 0 
-                             &&document.getElementById('1-level1').firstChild.getAttribute('alt')=='and' )
-                             &&( document.getElementById('2-level1').childElementCount > 0 
-                             &&document.getElementById('2-level1').firstChild.getAttribute('alt')=='or' ))
+                             &&document.getElementById('1-level1').firstChild.getAttribute('alt')==('or') ))
                              levelWon = true;
                         break;
                case 2:  if(( document.getElementById('1-level2').childElementCount > 0 
-                             &&document.getElementById('1-level2').firstChild.getAttribute('alt')=='and' )
+                             &&document.getElementById('1-level2').firstChild.getAttribute('alt')=='kabel' )
                              &&( document.getElementById('2-level2').childElementCount > 0 
-                             &&document.getElementById('2-level2').firstChild.getAttribute('alt')=='or' )
-                            &&( document.getElementById('3-level2').childElementCount > 0 
-                             &&document.getElementById('3-level2').firstChild.getAttribute('alt')=='or' ))
+                             &&document.getElementById('2-level2').firstChild.getAttribute('alt')=='not' ))
                              levelWon = true;
                         break;
-               case 3:  break;
-               case 4:  break;
-               case 5:  break;
+               case 3:  if(( document.getElementById('1-level3').childElementCount > 0 
+                             &&document.getElementById('1-level3').firstChild.getAttribute('alt')==('nor') ))
+                             levelWon = true;
+                        break;
+               case 4:  if(( document.getElementById('1-level4').childElementCount > 0 
+                             &&document.getElementById('1-level4').firstChild.getAttribute('alt')=='and' )
+                             &&( document.getElementById('2-level4').childElementCount > 0 
+                             &&document.getElementById('2-level4').firstChild.getAttribute('alt')=='or' ))
+                             levelWon = true;
+                        break;
+               case 5:  if(( document.getElementById('1-level5').childElementCount > 0 
+                             &&document.getElementById('1-level5').firstChild.getAttribute('alt')=='kabel' )
+                            &&( document.getElementById('2-level5').childElementCount > 0 
+                             &&document.getElementById('2-level5').firstChild.getAttribute('alt')=='nand' )
+                             &&( document.getElementById('3-level5').childElementCount > 0 
+                             &&document.getElementById('3-level5').firstChild.getAttribute('alt')=='kabel' ))
+                             levelWon = true;
+                        break;
                default: break;
        }
     },
@@ -52,6 +66,15 @@ winChecker = (function() {
         scoreNum+=timeNum;
         $('#score').html(scoreNum);
         Game.resetTimer();
+    },
+        
+    doAbsoluteWin = function(){
+        setTimeout(function(){
+            window.open("../index.html", '_self', false);
+        }, 5000);
+        $("#winString").html('Sie haben das Spiel gemeistert. In wenigen Minuten kehren Sie zum Hauptmenü zurück.');
+        $("#winString").show();
+        $("#winString").delay(5000).hide(0);
     }
     
     ;

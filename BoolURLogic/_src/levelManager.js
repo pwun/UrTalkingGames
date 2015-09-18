@@ -5,38 +5,45 @@ levelManager = (function() {
         not = null,
         nand = null,
         nor = null,
+        kabel = null,
         dropCounter = 1;
         
     init = function() { 
-       and = '<img id="and" alt="and" class="icon scale left" src="_res_BURL/and.png/" draggable="true" ondragstart="drag(event)">';
-       or =  '<img id="or"  alt="or"  class="icon scale left" src="_res_BURL/or.png/"  draggable="true" ondragstart="drag(event)">';
-       not = '<img id="not" alt="not" class="icon scale left" src="_res_BURL/not.png/" draggable="true" ondragstart="drag(event)">';
-       nand = '<img id="nand" alt="nand" class="icon scale left" src="_res_BURL/nand.png/" draggable="true" ondragstart="drag(event)">';
-       nor = '<img id="nor" alt="nor" class="icon scale left" src="_res_BURL/nor.png/" draggable="true" ondragstart="drag(event)">';
+       and = '<img id="and" alt="and"    class="icon scale left" src="_res_BURL/and.png/"   draggable="true" ondragstart="drag(event)">';
+       or =  '<img id="or"  alt="or"     class="icon scale left" src="_res_BURL/or.png/"    draggable="true" ondragstart="drag(event)">';
+       not = '<img id="not" alt="not"    class="icon scale left" src="_res_BURL/not.png/"   draggable="true" ondragstart="drag(event)">';
+       nand = '<img id="nand" alt="nand" class="icon scale left" src="_res_BURL/nand.png/"  draggable="true" ondragstart="drag(event)">';
+       nor = '<img id="nor" alt="nor"    class="icon scale left" src="_res_BURL/nor.png/"   draggable="true" ondragstart="drag(event)">';
+       kabel = '<img id="kabel" alt="kabel" class="icon scale left" src="_res_BURL/kabel.png/" draggable="true" ondragstart="drag(event)">';
     },
         
-    prepareTools = function(ta,to,tn,tna,tno){
+    prepareTools = function(ta,to,tn,tna,tno,tca){
          $('#tools').empty();
          if(ta > 0){
            $('#tools').append(and);
            $('#tools').append('<div id="andCount" class="number-icon scale margeLeft">'+ta+'</div>');
          }
+         if(tna > 0){
+           $('#tools').append(nand);
+           $('#tools').append('<div id="nandCount" class="number-icon scale margeLeft">'+tna+'</div>');
+         }
          if(to > 0){
            $('#tools').append(or);
            $('#tools').append('<div id="orCount" class="number-icon scale margeLeft">'+to+'</div>');
-         }
-        if(tn > 0){
-           $('#tools').append(not);
-           $('#tools').append('<div id="notCount" class="number-icon scale margeLeft">'+tn+'</div>');
-        }
-        if(tna > 0){
-           $('#tools').append(nand);
-           $('#tools').append('<div id="nandCount" class="number-icon scale margeLeft">'+tna+'</div>');
-        }
-        if(tno > 0){
+          }
+        
+         if(tno > 0){
            $('#tools').append(nor);
            $('#tools').append('<div id="norCount" class="number-icon scale margeLeft">'+tno+'</div>');
-        }
+         }
+         if(tca > 0){
+           $('#tools').append(kabel);
+           $('#tools').append('<div id="kabelCount" class="number-icon scale margeLeft">'+tca+'</div>');
+         }
+         if(tn > 0){
+           $('#tools').append(not);
+           $('#tools').append('<div id="notCount" class="number-icon scale margeLeft">'+tn+'</div>');
+         }
     }
         
     allowDrop = function (ev) {
