@@ -13,7 +13,7 @@ levelChecker = (function() {
         switch(currentLevel){
                case 1: levelManager.prepareTools(1,1,0,0,1,0); break;
                case 2: levelManager.prepareTools(0,0,2,0,0,2); break;
-               case 3: levelManager.prepareTools(1,1,0,1,1,0); break;
+               case 3: levelManager.prepareTools(1,1,0,0,1,0); break;
                case 4: levelManager.prepareTools(2,1,0,0,0,0); break;
                case 5: levelManager.prepareTools(1,0,2,1,0,2); break;
                default:levelManager.prepareTools(1,1,1,1,1); break;
