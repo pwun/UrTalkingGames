@@ -1,7 +1,7 @@
 winChecker = (function() {
     var that = {},
         currentLevel = 1,
-        levelWon = false;
+        levelWon = false,
         
     init = function() { 
         getLevel();
@@ -75,6 +75,8 @@ winChecker = (function() {
         $("#winString").html('Sie haben das Spiel gemeistert. In wenigen Minuten kehren Sie zum Hauptmenü zurück.');
         $("#winString").show();
         $("#winString").delay(5000).hide(0);
+        DatabaseController.setBoolHighscore(document.getElementById('score').innerHTML);
+        
     }
     
     ;

@@ -15,14 +15,14 @@ DesignURChar.CanvasController = (function () {
         },
         INTERVAL = 20,
         canvasValid = false, boxes = [],
-        selectionHandles = [],
         mySelShape='rect', mySelColor = '#CC0000',
  
          
         init = function (newConsoleController) {
             consoleController = newConsoleController;
             canvas = document.querySelector('#canvas');   
-            console.log(canvas);
+//            console.log("tatsächliche größe",canvas.width,canvas.height);
+//            console.log("scroll größe", canvas.scrollWidth,canvas.scrollHeight);
             //canvas.width = canvas.scrollWidth;
            // canvas.height = canvas.scrollHeight;
             context = canvas.getContext('2d');
@@ -53,24 +53,24 @@ DesignURChar.CanvasController = (function () {
         },
          
         _onDoubleClick = function(event) {
-            addBox(mouse.last_x,mouse.last_y,50,50,mySelColor,mySelShape);
+           // addBox(mouse.last_x,mouse.last_y,50,50,mySelColor,mySelShape);
+           var path=new Path2D();
+    path.moveTo(75,50);
+    path.lineTo(100,75);
+    path.lineTo(100,25);
+    context.fill(path);
         },
         
-     
-
         _onMouseDown = function (event) {
             mouse.dragStartX = mouse.last_x;
             mouse.dragStartY = mouse.last_y;
-            console.log("mouse down on",mouse.last_x,mouse.last_y);
-            mouse.down = true;
+             mouse.down = true;
         },
 
         _onMouseUp = function (event) {
             
             mouse.dragDistanceX = mouse.last_x - mouse.dragStartX;
             mouse.dragDistanceY = mouse.last_y - mouse.dragStartY;
-            
-            console.log("dragDistance", mouse.dragDistanceX,mouse.dragDistanceY);
             mouse.down = false;
           
             addBox(mouse.last_x-mouse.dragDistanceX,mouse.last_y-mouse.dragDistanceY,mouse.dragDistanceX,mouse.dragDistanceY,mySelColor,mySelShape);
@@ -78,21 +78,16 @@ DesignURChar.CanvasController = (function () {
         },
 
         _onMouseMoved = function (event) {
-            var new_x = event.offsetX,
-                new_y = event.offsetY; //unnc
-            
-            mouse.last_x = new_x;
-            mouse.last_y = new_y;
-            console.log(mouse.last_x,mouse.last_y);
-            if (mouse.down) {
-                console.log("dragging",mouse.last_x,mouse.last_y);
-            }
+       
+            mouse.last_x =  event.offsetX;
+            mouse.last_y = event.offsetY;
+             if (mouse.down) {
+             }
             if (mouse.last_x != -1 && mouse.last_y != -1) {
            //     _drawLine(mouse.last_x, mouse.last_y, new_x, new_y);
             }
            
         },
-
         _onMouseLeft = function (event) {
             mouse.last_x = -1;
             mouse.last_y = -1;
@@ -117,8 +112,7 @@ DesignURChar.CanvasController = (function () {
               box.shape = shape;
               boxes.push(box);
               canvasValid= false;
-            console.log("new Box",x,y,w,h,fill,shape);
-            consoleController.created(x,y,w,h,fill,shape);
+              consoleController.created(x,y,w,h,fill,shape);
          },
         
         drawCircle = function(x,y,rad,color) {
@@ -141,16 +135,32 @@ DesignURChar.CanvasController = (function () {
             context.stroke();
         },
         drawTriangle = function(x,y,w,h,color) {
-            context.beginPath();
-             context.fillStyle = color;
-            context.moveTo(x,y);
-            context.lineTo(w,x);
-            context.lineTo(w,h);
-        
-            context.fill();
+            w = Math.abs(w);
+            h = Math.abs(h);
+            console.log(x,y,w,h,color);
+            console.log("p1",x,y);
+            console.log("p2",x+w,y+w);
+            console.log("p3",x+h,y+h);
+            
+//            context.beginPath();
+//
+//            context.fillStyle = color;
+//            context.moveTo(x,y);
+//            context.lineTo(x+w,y+w);
+//            context.lineTo(x+h,y+h);
+//        
+//            context.fill();
+             var path=new Path2D();
+                path.moveTo(x,y);
+                path.lineTo(x+w,y+w);
+                path.lineTo(x+h,y-h);
+                context.fill(path);
+       
+          
+            
         },
-        drawStar = function(x,y,r,p,m){
-            context.fillStyle = 'red';
+        drawStar = function(x,y,r,p,m,color){
+            context.fillStyle = color;
             context.save();
             context.beginPath();
             context.translate(x,y);
@@ -165,9 +175,6 @@ DesignURChar.CanvasController = (function () {
             context.restore();
         };
     
-    
-
- 
     that.setColor = setColor;
     that.setShape = setShape;   
     that.getDataUrl = getDataUrl;
@@ -195,7 +202,7 @@ DesignURChar.CanvasController = (function () {
                     drawTriangle(this.x,this.y,this.w,this.h,this.fill);
                     break;
                 case 'star':
-                    drawStar(100, 100, 90, 5, 0.5);
+                    drawStar(this.x, this.y, this.w, 5, 0.5,this.fill);
                     break;
             }
         };

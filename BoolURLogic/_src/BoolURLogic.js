@@ -5,6 +5,8 @@ var BoolURLogic = (function() {
     init = function() { 
         
         Game.init(); 
+        DatabaseController.init();
+        
          
     }
     ;

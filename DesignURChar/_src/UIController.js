@@ -26,8 +26,7 @@ DesignURChar.UIController = (function () {
             canvasController.setColor(active_color);
          },
         _onShapeClicked = function(event) {
-            console.log(event.target.className);
-            canvasController.setShape(event.target.className.slice(6,event.target.className.length));
+             canvasController.setShape(event.target.className.slice(6,event.target.className.length));
             
         },
         _onColorClicked = function (event) {
