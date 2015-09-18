@@ -70,7 +70,7 @@ winChecker = (function() {
         
     doAbsoluteWin = function(){
         setTimeout(function(){
-            window.open("../index.html", '_self', false);
+           window.open("../index.html", '_self', false);
         }, 5000);
         $("#winString").html('Sie haben das Spiel gemeistert. In wenigen Minuten kehren Sie zum Hauptmenü zurück.');
         $("#winString").show();

@@ -10,8 +10,6 @@ header{
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     cursor:pointer;
-    width: 20%;
-    float: left;
 }
 #logo:hover{
     border: 7px solid #FF9966;
@@ -29,10 +27,7 @@ nav{
   border-style: solid;
   font-size: 28px;
   text-decoration: underline;
-  width:20%;
-  height:50%;
-  margin-top: 5%;
-  position: absolute;    
+  margin-top: 5%; 
   
 }
 #canvas{
