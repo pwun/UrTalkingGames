@@ -31,10 +31,9 @@ nav{
   
 }
 #canvas{
+  height: 100%;    
+  overflow: auto;
   background: #dadada;
-  height: 720px;
-  width: 1280px;
-  right:0;
   border: 3px solid #FF9966;
   border-radius: 7px; 
 }
