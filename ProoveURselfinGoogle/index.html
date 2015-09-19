@@ -1,35 +1,68 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>URGaming</title> 
          <link rel="stylesheet" href="../_res/_css/commonstyle.css">
+        <link rel="stylesheet" href="../_res/_css/gridiculous.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> 
 		 
     </head>
     
     <body>
-        <header>
-        <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
-        <h1>DesignURChar</h1>
+        <header class="row">
+        <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#" class="c3"/>
+        <h1 class="c3 s2">ProveURSelf</h1>
         </header>
+
+        <article>
+            <div class="row">
+                <div id="browser">
+                    <object id="canvas" class="c5 s3" width="525" height="245" data=http://www.bing.de> <embed id="embed" src=http://www.bing.de width="600" height="400"> </embed> Error: Embedded data could not be displayed. </object>
+                </div>
+                <div id="toolbox" class="c3 s1">
+                    <div class="row">
+                        <button id="start">Start</button>
+                    </div>
+                    <div class="row"> 
+                        <span>Gesamtzeit: </span>
+                        <span id="allTime">0:00</span>
+                    </div>
+                    <div class="row">
+                        <span>Zeit: </span>
+                        <span id="time">0:00</span>
+                    </div>
+                    <div class="row">
+                        <span id="question"></span>
+                    </div>
+                    <div class="row">
+                        <img id="pic"/>
+                    </div>
+                    <div class="row">
+                        <span>Antwort: </span>
+                        <span><input id="answer" type="text"></span>
+                        <span><button id="enter">OK</button></span>
+                        <span id="failText" style="display: none;">Leider falsch</span>
+                    </div>
+                    <div class="row"    >
+                        <span><button id="skip">skip</button></span>
+                    </div>
+                </div>
+            </div>
+        </article>
         
-        <nav>Menue
-            <ul>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li></ul>
-        </nav>
-        <canvas id="canvas"></canvas> 
         
         
     </body>
-    <script src="_src/DesignURChar.js"></script>
+    <script src="_src/PictureArray.js"></script>
+    <script src="_src/ProveURSelf.js"></script>   
 	<script src="../_libs/jquery-2.1.4.js"></script>  
 
 
 	<script>
         $(function() { 
-            DesignURChar.init();
+            ProveURSelf.init();
         });
 	</script>
     
