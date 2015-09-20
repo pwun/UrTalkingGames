@@ -10,6 +10,8 @@ var ProveURSelf = (function () {
         $start,
         currentIndex,
         allTime = 0,
+        indexArray = new Array(),
+        numOfPicPerGame = 6,
 
     init = function () {
         PictureArray.init();
@@ -20,6 +22,7 @@ var ProveURSelf = (function () {
         $skip.on('click', onSkip);
         $start.on('click', startGame);
         $enter.on('click', checkAnswer);
+        $('#playAgain').on('click', function () { location.reload(); })
     },
 
     getElements = function () {
@@ -105,10 +108,36 @@ var ProveURSelf = (function () {
     },
 
     getRandomPicture = function () {
-        var index = Math.floor((Math.random() * PictureArray.getPicArray().length));
-        currentIndex = index;
+        var index = getNewRandomIndex();
+        console.log(index);
         $question.text(PictureArray.getPicArray()[index].question);
         $pic.attr("src", PictureArray.getPicArray()[index].img);
+    },
+
+    getRandomIndex = function() {
+        return Math.floor((Math.random() * PictureArray.getPicArray().length));
+    }
+
+    getNewRandomIndex = function () {
+        if (indexArray.length == numOfPicPerGame) {
+            $skip.prop('disabled', true);
+            $enter.prop('disabled', true);
+            $answer.prop('disabled', true);
+            $('#playAgain').attr('style', "display: inline-block");
+        } else {
+            console.log(indexArray);
+            var index = getRandomIndex();
+            for (var i = 0; i < indexArray.length; i++) {
+                if (indexArray[i] == index) {
+                    index = getRandomIndex();
+                    i = -1;
+                    continue;
+                }
+            }
+        }
+        indexArray.push(index);
+        currentIndex = index;
+        return index;
     }
     ;
     
