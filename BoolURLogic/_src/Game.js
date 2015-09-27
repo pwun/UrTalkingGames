@@ -4,8 +4,22 @@ Game = (function() {
          
         
     init = function() {
-       // _initCanvas();
+        var turotialYetActivated = false;
         $('#logo').on('click', function(){ location.reload();});
+        $('#newGame').on('click', function(){ location.reload();});
+        $('#buttonTutorial').on('click', function(){ 
+            if(turotialYetActivated){
+                 $('#help').hide();
+                 $('#game').show();
+                turotialYetActivated = false;
+            }
+            else {
+                 $('#help').show();
+                 $('#game').hide();
+                turotialYetActivated = true;
+            }
+            
+        });
         levelChecker.init();
         timer();
     },
