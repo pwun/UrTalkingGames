@@ -11,7 +11,9 @@ var ProveURSelf = (function () {
         currentIndex,
         allTime = 0,
         indexArray = new Array(),
-        numOfPicPerGame = 6,
+        numOfPicPerGame = 5,
+        numOfPicDone = 0,
+        numOfPicSkiped = 0;
 
     init = function () {
         PictureArray.init();
@@ -45,11 +47,16 @@ var ProveURSelf = (function () {
     },
 
     onSkip = function() {
-        getRandomPicture();
-        resetTimer();
-        addAllTime(180);
+        numOfPicSkiped += 1;
+        allTime += getTime();
+        addAllTime(300);
         updateAllTime();
+        resetTimer();
         $answer.val('');
+        getRandomPicture();
+        if ((numOfPicPerGame - numOfPicDone) == (PictureArray.getPicArray().length) - numOfPicDone - numOfPicSkiped) {
+            $skip.prop('disabled', true);
+        }
 
     },
 
@@ -58,8 +65,9 @@ var ProveURSelf = (function () {
             allTime += getTime();
             updateAllTime();
             resetTimer();
-            getRandomPicture();
+            numOfPicDone += 1;
             $answer.val('');
+            getRandomPicture();      
         } else {
             $('#failText').attr('style', "display: inline-block"); 
             $("#failText").show().delay(3000).fadeOut();
@@ -119,7 +127,10 @@ var ProveURSelf = (function () {
     }
 
     getNewRandomIndex = function () {
-        if (indexArray.length == numOfPicPerGame) {
+        console.log("Done: "+numOfPicDone);
+        console.log("Need: "+numOfPicPerGame);
+        console.log("Skiped: "+numOfPicSkiped);
+        if (numOfPicDone == numOfPicPerGame) {
             $skip.prop('disabled', true);
             $enter.prop('disabled', true);
             $answer.prop('disabled', true);
