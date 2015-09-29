@@ -2,36 +2,54 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>URGaming</title> 
-         <link rel="stylesheet" href="../_res/_css/commonstyle.css">
-		 
+        <title>URGaming - CheckURJava</title>
+        <link rel="stylesheet" href="_res/style.css">
+        <link rel="stylesheet" href="_res/canvas.css">
+        <link rel="stylesheet" href="_res/input.css">
+        <link rel="stylesheet" href="_res/code.css">
     </head>
-    
+
     <body>
         <header>
         <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
-        <h1>DesignURChar</h1>
+        <h1>CheckURJava</h1>
         </header>
-        
-        <nav>Menue
-            <ul>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li></ul>
-        </nav>
-        <canvas id="canvas"></canvas> 
-        
-        
+
+
+        <div id="code" >Dein Code: <button type="button" id="run" onclick="runCode()">Testen</button><div id = "drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+
+        <div id="cr-stage"></div>
+
+      <ul id="input">
+        <li>Bedingungen</li>
+      <ul>
+        <li><div id="if" draggable="true" ondragstart="drag(event)">wenn()</div></li></ul>
+        <li>Schleifen</li>
+      <ul>
+        <li><div id="for" draggable="true" ondragstart="drag(event)">x mal</div></li>
+        <li><div id="while" draggable="true" ondragstart="drag(event)">solange()</div></li></ul>
+        <li>Aktionen</li>
+      <ul>
+        <li><div id="move" draggable="true" ondragstart="drag(event)">geh 1 Schritt</div</li>
+        <li><div id="turn" draggable="true" ondragstart="drag(event)">dreh dich rechts</div></li></ul>
+      </ul>
     </body>
-    <script src="_src/CheckURJava.js"></script>
-	<script src="../_libs/jquery-2.1.4.js"></script>  
+  <script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+  <script src="_src/Game.js"></script>
+  <script src="_src/Components.js"></script>
+  <script src="_src/Scenes.js"></script>
+  <script src="_src/Level.js"></script>
+  <script src="_src/Compiler.js"></script>
+  <script src="_src/dragAndDrop.js"></script>
+  <script src="_src/CheckURJava.js"></script>
+	<script src="../_libs/jquery-2.1.4.js"></script>
 
 
 	<script>
-        $(function() { 
+        $(function() {
             CheckURJava.init();
         });
 	</script>
-    
-    
+
+
 </html>

@@ -1,0 +1,25 @@
+#input{
+  background-color: #dadada;
+  width:70%;
+  height: 130px;
+}
+
+#input div{
+  background-color: white;
+  display: inline-table;
+}
+
+#input ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+#input ul li { display: inline; }
+
+#input ul li div
+{
+text-decoration: none;
+margin-right: 5px;
+}

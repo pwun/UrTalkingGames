@@ -1,0 +1,19 @@
+header{
+  height: 60px;
+}
+
+header h1{
+  text-align: center;
+  font-weight: normal;
+  color: #999999;
+  font-family: sans-serif;
+}
+
+body{
+  font-family: sans-serif;
+}
+
+#logo{
+  float:left;
+  height: 60px;
+}
