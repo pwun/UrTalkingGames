@@ -1,21 +1,24 @@
-var dir = "e";
-
+var _dir = "e";
+var _move = "Player.move('"+_dir+"',50);";
+var _if = "if(true){console.log('if');}";
 
 function runCode(){
-  var move = "Player.move('"+dir+"',50);";
-
   console.log("Run Code");
   var array = new Array();
-  var codeToCompile = "var Player = Crafty.e('Player').at(10,10);";
+  //Init Player at the upper left corner of the level
+  var codeToCompile = "var Player = Crafty.e('Player').at(1,1);";
 
   $('#drop').children().each(function(){
     array.push($(this).attr('id'));
     switch ($(this).attr('id')) {
-      case "newmove":
-        codeToCompile += move;
+      case "do_move":
+        codeToCompile += _move;
         break;
-        case "newturn":
-          codeToCompile += turn();
+        case "do_turn":
+          codeToCompile += _turn();
+          break;
+        case "do_if":
+          codeToCompile += _if;
           break;
       default:
     }
@@ -32,8 +35,8 @@ function runCode(){
 
 }
 
-function turn(){
-  switch (dir) {
+function _turn(){
+  switch (_dir) {
     case "n":
       dir = "e";
       break;

@@ -1,8 +1,9 @@
 #drop{
   margin-left: 2%;
   background-color: white;
-  width: 96%;
+  width: 94%;
   height: 95%;
+  padding: 5px;
 }
 
 #code{
@@ -10,4 +11,18 @@
   width:29%;
   height: 650px;
   float:right;
+}
+
+.input{
+  background-color: lightgray;
+  margin-left: 20px;
+  min-height: 40px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px solid gray;
+}
+
+.condition{
+  display:inline-table;
+  background-color: lightgray;
 }
