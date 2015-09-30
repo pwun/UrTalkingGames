@@ -156,7 +156,7 @@ li:hover{
 }
 
 .icon{
-    margin:5px;
+    margin:10px;
     cursor:pointer;
     align:middle;
     border: 3px solid #FF9966;
@@ -169,6 +169,20 @@ li:hover{
     -webkit-transform: rotate(20deg);
 
     transform: rotate(20deg);
+    outline: inherit;
+    border-color: #0000DD;
+    box-shadow: 0 0  2px #0099DD;
+}
+.iconawake{
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+
+    transform: rotate(20deg);
+    width:200px;
+    height:200px;
+    
     outline: inherit;
     border-color: #0000DD;
     box-shadow: 0 0  2px #0099DD;

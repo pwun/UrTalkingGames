@@ -7,6 +7,9 @@ Game = (function() {
         var turotialYetActivated = false;
         $('#logo').on('click', function(){ location.reload();});
         $('#newGame').on('click', function(){ location.reload();});
+        $('#el1').on('click', _handleClick);
+        $('#el2').on('click', _handleClick);
+        $('#el3').on('click', _handleClick);
         $('#buttonTutorial').on('click', function(){ 
             if(turotialYetActivated){
                  $('#help').hide();
@@ -23,6 +26,23 @@ Game = (function() {
         levelChecker.init();
         timer();
     },
+    
+    _handleClick = function(e) { 
+        switch(e.target.id){
+                 
+            case 'el1':
+                window.open("../DesignURChar/index.html", '_self', false);
+                break;
+            case 'el2':
+                window.open("../CheckURJava/index.html", '_self', false);
+                break;
+            case 'el3':
+                window.open("../ProoveURselfinGoogle/index.html", '_self', false);
+                break;
+             
+        }
+        
+    }
     
     timer = function(){
         time += 1;

@@ -52,11 +52,13 @@ winChecker = (function() {
     },
     
     doWin = function(){
+        $("#icon").removeClass("scale").removeClass("rotation").addClass("iconawake");
         setTimeout(function(){
+            $("#icon").removeClass("iconawake").addClass("rotation").addClass("scale");
             levelChecker.setLevel(++currentLevel);
         }, 2000);
         $("#winString").show();
-        $("#winString").delay(3000).hide(0);
+        $("#winString").delay(2000).hide(0);
         var score = document.getElementById('score').innerHTML,
             time  = document.getElementById('time').innerHTML,
             timeNum = Game.getTime(),
