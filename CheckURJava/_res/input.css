@@ -1,9 +1,3 @@
-#input{
-  background-color: #dadada;
-  width:70%;
-  height: 130px;
-}
-
 #input div{
   background-color: white;
   display: inline-table;
@@ -16,10 +10,22 @@ padding: 0;
 list-style-type: none;
 }
 
-#input ul li { display: inline; }
 
 #input ul li div
 {
 text-decoration: none;
 margin-right: 5px;
+}
+
+#input {
+    background-color: #dadada;
+    padding:10px;
+    margin:0;
+    list-style-type:none;
+    width:68%;
+    height: 100px;
+}
+#input li {
+    width:25%;
+    float:left;
 }

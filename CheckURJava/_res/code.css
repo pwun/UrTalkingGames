@@ -25,4 +25,6 @@
 .condition{
   display:inline-table;
   background-color: lightgray;
+  min-width: 40px;
+  min-height: 10px;
 }
