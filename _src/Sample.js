@@ -25,8 +25,7 @@ SamplesView = (function() {
 
         var pickedImage = event.target;
          $('#icon').attr('src',pickedImage.src) ;
-        console.log("image setted");
-         
+          
     },    
     _onMouseMoved = function(event) {
         $(sampleView).removeClass('collappsed');

@@ -3,8 +3,8 @@ DatabaseController = (function () {
         db, remoteCouch,syncError,
 
         init = function (newCanvasController) {
-             db = new PouchDB("testChars");
-             remoteCouch = "http://urgadmin:adminpw@urgaming.iriscouch.com:5984/testChars";
+             db = new PouchDB("chars");
+             remoteCouch = "http://urgadmin:adminpw@urgaming.iriscouch.com:5984/chars";
              var opts = {live:true};
       db.replicate.to(remoteCouch, opts, syncError);
       db.replicate.from(remoteCouch, opts, syncError);

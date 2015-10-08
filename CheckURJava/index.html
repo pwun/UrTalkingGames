@@ -7,14 +7,20 @@
         <link rel="stylesheet" href="_res/canvas.css">
         <link rel="stylesheet" href="_res/input.css">
         <link rel="stylesheet" href="_res/code.css">
+        <link rel="stylesheet" href="../_res/_css/samples.css">
     </head>
 
     <body>
         <header>
+        
         <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
+        <img id="icon"/>
         <h1>CheckURJava</h1>
         </header>
-
+         <div id="samples" class="collappsed">
+		<ul id="sample-list" class="list">
+		</ul>
+	   </div> 
 
         <div id="code" >Dein Code: <button type="button" id="run" onclick="runCode()">Testen</button><div id = "drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
 
@@ -46,7 +52,13 @@
         </li>
       </ul>
     </body>
+    
+  <script src="../_libs/jquery-2.1.4.js"></script>
+  <script src="../_libs/pouchdb-4.0.1.min.js"></script> 
+  <script src="../_libs/underscore.js"></script>
   <script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+    
+    
   <script src="_src/Game.js"></script>
   <script src="_src/Components.js"></script>
   <script src="_src/Scenes.js"></script>
@@ -54,7 +66,9 @@
   <script src="_src/Compiler.js"></script>
   <script src="_src/dragAndDrop.js"></script>
   <script src="_src/CheckURJava.js"></script>
-	<script src="../_libs/jquery-2.1.4.js"></script>
+    
+  <script src="../_src/DatabaseController.js"></script>
+  <script src="../_src/Sample.js"></script>    
 
 
 	<script>
@@ -62,6 +76,12 @@
             CheckURJava.init();
         });
 	</script>
+    <script id="sampleTemplate" type="text/template">
+	    <li>
+            <span class="title"><%= title %></span>
+            <img class="<%= className %>" title="<%= title %>" src="<%= url %>" data-src="<%= dataUrl %>"/>
+        </li>
+    </script>
 
 
 </html>
