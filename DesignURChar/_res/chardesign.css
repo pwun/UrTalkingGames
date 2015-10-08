@@ -2,6 +2,21 @@ body {
     background-image: url(../../_res/_img/debut_light.png)
 }
 
+button {
+  display : inline-block;
+  cursor : pointer;
+  border-style : solid;
+  border-width : 1px;
+  border-radius : 50px;
+  box-shadow : 0 1px 4px rgba(0,0,0,.6);
+  margin-top: 10px;
+  color : #000000;
+  text-shadow : 0 1px 3px rgba(0,0,0,.4);
+  font-family : sans-serif;
+  background-color: #dadada;
+ }
+ 
+
 #canvas{
     border-style:solid;
     border-width:5px;
@@ -20,7 +35,7 @@ body {
     width:40px;
     height:40px;
     display: block;
-     margin:5px 5px 5px 5px;
+    margin:5px 5px 5px 5px;
     float: left;
 }
 
@@ -35,12 +50,12 @@ body {
 
 }
 #toolbox .option {
-  
+    width: 85px;
     display: block;
-}
+ }
 
 #colors .color.active {
-  border-color:rgba(2,255,0,1);
+  border-color:rgba(0,0,0,1);
 }
 
 #colors .color:hover {
@@ -84,10 +99,9 @@ body {
     border-radius: 20px;
 }
 
-#shapes .shape.triangle {
-width: 0;
-    height: 0;
-    border-bottom: 40px solid #fcf921;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+#shapes .shape.line {
+    background-image: url(paint-roller.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+     
 }

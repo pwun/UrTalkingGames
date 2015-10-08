@@ -13,7 +13,7 @@ var ProveURSelf = (function () {
         indexArray = new Array(),
         numOfPicPerGame = 5,
         numOfPicDone = 0,
-        numOfPicSkiped = 0;
+        numOfPicSkiped = 0,
 
     init = function () {
         PictureArray.init();
@@ -25,6 +25,9 @@ var ProveURSelf = (function () {
         $start.on('click', startGame);
         $enter.on('click', checkAnswer);
         $('#playAgain').on('click', function () { location.reload(); })
+        DatabaseController.init();
+        SamplesView.init();
+        
     },
 
     getElements = function () {
@@ -96,11 +99,11 @@ var ProveURSelf = (function () {
 
     getTime = function () {
         return time;
-    }
+    },
 
     addAllTime = function (failtime) {
         allTime += failtime;
-    }
+    },
 
     updateAllTime = function () {
         if (allTime < 10) document.getElementById('allTime').firstChild.nodeValue = '0:0' + allTime;
@@ -124,7 +127,7 @@ var ProveURSelf = (function () {
 
     getRandomIndex = function() {
         return Math.floor((Math.random() * PictureArray.getPicArray().length));
-    }
+    },
 
     getNewRandomIndex = function () {
         console.log("Done: "+numOfPicDone);

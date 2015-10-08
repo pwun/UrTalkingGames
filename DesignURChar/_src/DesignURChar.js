@@ -7,6 +7,7 @@ var DesignURChar = {
         var canvasController = DesignURChar.CanvasController.init(consoleController);
         DesignURChar.UIController.init(canvasController);
         
-        DesignURChar.DatabaseController.init();
+        DatabaseController.init();
+        SamplesView.init();
     }
 };

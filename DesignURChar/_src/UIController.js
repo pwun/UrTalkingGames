@@ -22,21 +22,26 @@ DesignURChar.UIController = (function () {
         },
 
         _initCanvas = function () {
-            var active_color = colors.children('.color.active').css('background-color');
+            var active_color = colors.children().children('.color.active').css('background-color');
             canvasController.setColor(active_color);
-         },
+        },
         _onShapeClicked = function(event) {
-             canvasController.setShape(event.target.className.slice(6,event.target.className.length));
-            
+            canvasController.setShape(event.target.className.slice(6,event.target.className.length));
         },
         _onColorClicked = function (event) {
             var color_element = $(event.target);
-            colors.children('.color').removeClass('active');
+            colors.children().children('.color').removeClass('active');
             color_element.addClass('active');
-            canvasController.setColor(color_element.css('background-color'));
+            canvasController.setColor(color_element.css('background-color'),color_element[0].classList[1]);
+
         },
         _onSaveClicked = function(event) {
-            DesignURChar.DatabaseController.saveImage(canvasController.getDataUrl());
+            var nickname = $('#nicknameInput').val();
+            if(nickname!=""){
+                DatabaseController.saveImage(nickname,canvasController.getDataUrl());
+            } else {
+                alert("Please enter a nickname before saving... :)");
+            }
         };
 
     that.init = init;
