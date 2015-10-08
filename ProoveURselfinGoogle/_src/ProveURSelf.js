@@ -25,8 +25,9 @@ var ProveURSelf = (function () {
         $start.on('click', startGame);
         $enter.on('click', checkAnswer);
         $('#playAgain').on('click', function () { location.reload(); })
-        DatabaseController.init();
         SamplesView.init();
+        DatabaseController.init();
+        
         
     },
 

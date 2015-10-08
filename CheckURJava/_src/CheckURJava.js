@@ -4,8 +4,9 @@ var CheckURJava = (function() {
 
     init = function() {
         Game.start();
-        DatabaseController.init();
         SamplesView.init();
+        DatabaseController.init();
+        
     };
     that.init = init;
     return that;

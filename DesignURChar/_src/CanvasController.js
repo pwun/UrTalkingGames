@@ -47,8 +47,6 @@ DesignURChar.CanvasController = (function () {
             mouse.dragDistanceY = mouse.last_y - mouse.dragStartY;
             mouse.down = false; 
             
-            
-            
             switch(mySelShape) {
                 case 'rect':
                     drawRect(mouse.last_x-mouse.dragDistanceX,mouse.last_y-mouse.dragDistanceY,mouse.dragDistanceX,mouse.dragDistanceY);

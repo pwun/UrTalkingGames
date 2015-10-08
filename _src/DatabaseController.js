@@ -20,24 +20,24 @@ DatabaseController = (function () {
         db.put(img, function callback(err,res) {
         if(!err){ 
            retrieveElements();
-           console.log("succesful db input");
-        }
+         }
         else{   console.log(err);}
         
         });
     },
         
     retrieveElements = function() { 
+        SamplesView.resetView();
         db.allDocs({include_docs: true, descending:false},      function(err,doc){
         for(var i=0;i<doc.rows.length;i++) {
-                SamplesView.appendItem(doc.rows[i].doc.nickname, doc.rows[i].doc.dataUrl);
+               SamplesView.appendItem(doc.rows[i].doc.nickname, doc.rows[i].doc.dataUrl);
             }
             
             
       });
     },
      setBoolHighscore = function(newHighscore) {
-        console.log("bool Highscore",newHighscore);
+        //console.log("bool Highscore",newHighscore);
     } 
     
     ;

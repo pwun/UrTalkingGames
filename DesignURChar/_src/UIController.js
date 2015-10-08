@@ -46,6 +46,8 @@ DesignURChar.UIController = (function () {
                     var nickname = $('#nicknameInput').val();
                     if(nickname!=""){
                         DatabaseController.saveImage(nickname,canvasController.getDataUrl());
+                        canvasController.clearCanvas();
+                        
                     } else {
                         alert("Please enter a nickname before saving... :)");
                     }

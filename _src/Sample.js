@@ -61,9 +61,12 @@ SamplesView = (function() {
         
     appendItem = function(nickname,imgURL) {
          _addImage(nickname,imgURL);
+    },
+    resetView = function() {
+        sampleList.html("");
     };
         
-    
+    that.resetView = resetView;
     that.appendItem = appendItem;
 	that.init = init;
 	return that;
