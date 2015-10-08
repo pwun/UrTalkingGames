@@ -1,7 +1,7 @@
 DesignURChar.CanvasController = (function () {
    
     var that = {},
-        DEFAULT_LINE_WIDTH = 5,
+        DEFAULT_LINE_WIDTH = 4,  
         canvas,
         context,
         consoleController,
@@ -20,16 +20,8 @@ DesignURChar.CanvasController = (function () {
  
          
         init = function (newConsoleController) {
-                      
-            
             consoleController = newConsoleController;
-            _initCanvas();
-             
-            console.log("tatsächliche größe",canvas.width,canvas.height);
-            console.log("scroll größe", canvas.scrollWidth,canvas.scrollHeight);
-            canvas.width = canvas.scrollWidth;
-            canvas.height = canvas.scrollHeight;
-            
+            _initCanvas();  
             return that;
         },
         _initCanvas = function() {
@@ -93,7 +85,7 @@ DesignURChar.CanvasController = (function () {
             mouse.down = false;
         },
         
-        /** Setter-Methoden für Canvas */
+        /** Setter-Methoden für Canvas-Parameter */
         setColor = function(newColor,newColorName) {
             mySelColor = newColor;
             mySelColorName = newColorName;
@@ -102,9 +94,7 @@ DesignURChar.CanvasController = (function () {
          },
         setShape = function(newShape) {
             mySelShape = newShape;  
-            console.log(mySelShape);
-            consoleController.onSelectionChanged(mySelShape,mySelColorName);
-             
+            consoleController.onSelectionChanged(mySelShape,mySelColorName);   
         },
        
         /** Draw-Methoden */
@@ -116,8 +106,8 @@ DesignURChar.CanvasController = (function () {
             context.arc(x,y,rad/2, 0, 2 * Math.PI);
             context.fillStyle = mySelColor;
             context.fill();
-            context.lineWidth = 5;
-            context.strokeStyle = '#dadada';
+            context.lineWidth = DEFAULT_LINE_WIDTH;
+            context.strokeStyle = 'black';
             context.stroke();
         },
         drawRect = function(x,y,w,h) {
@@ -126,7 +116,7 @@ DesignURChar.CanvasController = (function () {
             context.rect(x, y, w, h);
             context.fillStyle = mySelColor; 
             context.fill();
-            context.lineWidth = 4;
+            context.lineWidth = DEFAULT_LINE_WIDTH;
             context.strokeStyle = 'black';
             context.stroke();
         },
@@ -143,6 +133,9 @@ DesignURChar.CanvasController = (function () {
                 context.rotate(Math.PI / p);
                 context.lineTo(0,0 -r);
             }
+            context.lineWidth = DEFAULT_LINE_WIDTH;
+            context.strokeStyle = 'black';
+            context.stroke;
             context.fill();
             context.restore();
         },
@@ -152,13 +145,17 @@ DesignURChar.CanvasController = (function () {
             context.beginPath();
             context.moveTo(x1, y1);
             context.lineTo(x2, y2);
+            context.lineWidth = DEFAULT_LINE_WIDTH;
             context.stroke();
             context.closePath();
         },
         getDataUrl = function() {
             return canvas.toDataURL();
+        },
+        clearCanvas = function() {
+            context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
         };
-    
+    that.clearCanvas = clearCanvas;
     that.setColor = setColor;
     that.setShape = setShape;   
     that.getDataUrl = getDataUrl;

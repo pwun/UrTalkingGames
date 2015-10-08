@@ -9,8 +9,7 @@ DatabaseController = (function () {
       db.replicate.to(remoteCouch, opts, syncError);
       db.replicate.from(remoteCouch, opts, syncError);
             retrieveElements();
-            console.log("DB Controller ready");
-    },
+     },
         
     saveImage = function(newNickName,newDataUrl) {
         var img = {

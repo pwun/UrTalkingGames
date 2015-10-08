@@ -1,0 +1,114 @@
+body {
+    background-image: url(../_img/debut_light.png);
+}
+
+header{
+     margin-bottom: 5%;
+}
+
+h1{
+  text-align:center;
+  color: #999999;
+      
+}
+ 
+#canvas{
+ 
+    
+    background: #dadada;
+    border: 3px solid #FF9966;
+    border-radius: 7px; 
+ 
+  background: #dadada;
+  width: 70%;
+  height:50%;
+  max-width: 700px;
+  min-height: 500px;
+  float:left;
+  border: 3px solid #FF9966;
+  border-radius: 7px; 
+}
+.possibleDrop{
+  margin:5px;    
+  max-width: 60px;
+  min-height: 60px;
+  border: 3px solid #999999;
+  border-radius: 7px; 
+ }
+
+#canvas:hover{
+    outline: inherit;
+    border-color: #FF9966;
+    box-shadow: 0 0  20px #FF9966;
+}
+#logo{
+      float: left;
+   cursor:pointer;
+  zoom:50%;
+  float: left;
+ }
+ 
+
+
+
+#game{
+    width:70%;
+    float:right;
+}
+
+#toolBox{
+    float:left;
+    width: 25%;
+    margin-left: 5px;
+}
+
+#tools{
+}
+
+.icon{
+    margin:5px;
+    cursor:pointer;
+    align:middle;
+    border: 3px solid #FF9966;
+    border-radius: 2px; 
+}
+
+.right{
+    float:right;
+    margin-right: 2%;
+}
+
+.rotation{
+    -moz-transform: rotate(80deg);
+    -ms-transform: rotate(80deg);
+    -o-transform: rotate(80deg);
+    -webkit-transform: rotate(80deg);
+
+    transform: rotate(80deg);
+}
+
+.left{
+    float:left;
+}
+
+.scale{
+   width: 60px;
+    height: 60px; 
+}
+
+.number-icon{
+    float:left;
+    margin: 5px;
+    overflow: auto;
+    cursor:default;
+    text-align: center;
+    font-size: 36px;
+    border: 3px solid #FF9966;
+    border-radius: 2px; 
+}
+
+.hide{
+    display:none;
+}
+
+ 

@@ -18,7 +18,9 @@ DesignURChar.UIController = (function () {
 
         _initMenu = function () { 
             document.querySelector('#shapes').addEventListener('click', _onShapeClicked, false);
-            document.querySelector('#saveButton').addEventListener('click', _onSaveClicked,false);
+            document.querySelector('#saveButton').addEventListener('click', _onButtonClicked,false);
+            document.querySelector('#quitButton').addEventListener('click', _onButtonClicked,false);
+            document.querySelector('#clearButton').addEventListener('click', _onButtonClicked,false);
         },
 
         _initCanvas = function () {
@@ -35,13 +37,24 @@ DesignURChar.UIController = (function () {
             canvasController.setColor(color_element.css('background-color'),color_element[0].classList[1]);
 
         },
-        _onSaveClicked = function(event) {
-            var nickname = $('#nicknameInput').val();
-            if(nickname!=""){
-                DatabaseController.saveImage(nickname,canvasController.getDataUrl());
-            } else {
-                alert("Please enter a nickname before saving... :)");
+        _onButtonClicked = function(event) {
+             switch(event.target.id) {
+                case 'quitButton':
+                    window.location.replace("../index.html");
+                    break;
+                case 'saveButton':
+                    var nickname = $('#nicknameInput').val();
+                    if(nickname!=""){
+                        DatabaseController.saveImage(nickname,canvasController.getDataUrl());
+                    } else {
+                        alert("Please enter a nickname before saving... :)");
+                    }
+                    break;
+                case 'clearButton':
+                    canvasController.clearCanvas();
+                    break;
             }
+            
         };
 
     that.init = init;

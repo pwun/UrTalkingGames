@@ -22,7 +22,7 @@ Game = (function() {
             
         });
         $('#quit').on('click', function() {
-            window.open("../index.html");
+            window.location.replace("../index.html");
         });
         levelChecker.init();
         timer();
