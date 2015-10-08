@@ -14,8 +14,6 @@ DesignURChar.CanvasController = (function () {
             dragStartX:0,
             dragStartY:0
         },
-         
-        boxes = [],
         mySelShape='line', mySelColor = 'red',mySelColorName='red',
  
          
@@ -32,37 +30,42 @@ DesignURChar.CanvasController = (function () {
             canvas.addEventListener('mousedown', _onMouseDown, false);
             canvas.addEventListener('mouseup', _onMouseUp, false);
             canvas.onselectstart = function() {return false;}
+            
         },
         
         /** Mouse-Events */
         _onMouseDown = function (event) {
             mouse.down = true;
-            mouse.dragStartX = mouse.last_x;
-            mouse.dragStartY = mouse.last_y;
-            
-        },
+            mouse.dragStartX = event.offsetX;
+            mouse.dragStartY = event.offsetY;
 
+        },
+       
         _onMouseUp = function (event) {
             
             mouse.dragDistanceX = mouse.last_x - mouse.dragStartX;
             mouse.dragDistanceY = mouse.last_y - mouse.dragStartY;
             mouse.down = false; 
             
+            
+            
             switch(mySelShape) {
                 case 'rect':
                     drawRect(mouse.last_x-mouse.dragDistanceX,mouse.last_y-mouse.dragDistanceY,mouse.dragDistanceX,mouse.dragDistanceY);
                     break;
                 case 'circle':
-                    drawCircle(mouse.last_x-mouse.dragDistanceX,mouse.last_y-mouse.dragDistanceY,mouse.dragDistanceX);
+                    
+                    drawCircle(mouse.last_x-mouse.dragDistanceX,mouse.last_y-mouse.dragDistanceY,_getScale(mouse.dragDistanceX,mouse.dragDistanceY));
                     break;
                 case 'star':
-                    drawStar(mouse.last_x-mouse.dragDistanceX,mouse.last_y-mouse.dragDistanceY,mouse.dragDistanceX, 5, 0.5);
+                    drawStar(mouse.last_x-mouse.dragDistanceX,mouse.last_y-mouse.dragDistanceY,_getScale(mouse.dragDistanceX,mouse.dragDistanceY), 5, 0.5);
                     break;
             }
            
         },
 
         _onMouseMoved = function (event) {
+            
         var new_x = event.offsetX,
                 new_y = event.offsetY;
             
@@ -76,7 +79,7 @@ DesignURChar.CanvasController = (function () {
             }
             mouse.last_x = new_x;
             mouse.last_y = new_y;
-            
+ 
            
         },
         _onMouseLeft = function (event) {
@@ -84,7 +87,14 @@ DesignURChar.CanvasController = (function () {
             mouse.last_y = -1;
             mouse.down = false;
         },
-        
+         _getScale = function(a,b) {
+            a = Math.abs(a);
+            b = Math.abs(b);
+            var sum = (a*a)+(b*b);
+             
+            return Math.sqrt(sum);
+            
+        },
         /** Setter-Methoden für Canvas-Parameter */
         setColor = function(newColor,newColorName) {
             mySelColor = newColor;
@@ -149,6 +159,7 @@ DesignURChar.CanvasController = (function () {
             context.stroke();
             context.closePath();
         },
+        
         getDataUrl = function() {
             return canvas.toDataURL();
         },
