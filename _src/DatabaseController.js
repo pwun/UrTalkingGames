@@ -21,7 +21,6 @@ DatabaseController = (function () {
            retrieveElements();
          }
         else{   console.log(err);}
-        
         });
     },
         
@@ -32,13 +31,8 @@ DatabaseController = (function () {
                 SamplesView.appendItem(doc.rows[i].doc._id, doc.rows[i].doc.dataUrl);
             }      
       });
-    },
-     setBoolHighscore = function(newHighscore) {
-        //console.log("bool Highscore",newHighscore);
-    } 
-    
+    }
     ;
-    that.setBoolHighscore = setBoolHighscore;
     that.saveImage = saveImage;
     that.init = init;
 

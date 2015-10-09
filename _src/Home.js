@@ -4,21 +4,21 @@ var Home = (function() {
         
     init = function() {
         $('#prooveCover').on('click', _handleClick);
-        $('#el1').on('click', _handleClick);
-        $('#el2').on('click', _handleClick);
-        $('#el3').on('click', _handleClick);
+        $('#designCover').on('click', _handleClick);
+        $('#boolCover').on('click', _handleClick);
+        $('#checkCover').on('click', _handleClick);
     },
     
     _handleClick = function(e) { 
         switch(e.target.id){
                  
-            case 'el1':
+            case 'designCover':
                 window.open("DesignURChar/index.html", '_self', false);
                 break;
-            case 'el2':
+            case 'checkCover':
                 window.open("CheckURJava/index.html", '_self', false);
                 break;
-            case 'el3':
+            case 'boolCover':
                 window.open("BoolURLogic/index.html", '_self', false);
                 break;
             case 'prooveCover':
