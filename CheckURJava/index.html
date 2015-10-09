@@ -10,27 +10,25 @@
         <link rel="stylesheet" href="_res/code.css">
         <link rel="stylesheet" href="../_res/_css/samples.css">
     </head>
-
     <body>
         <header>
-        
         <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#"/>
-        <img id="icon" class="sampleIcon"/>
+        <a href="../index.html"><img class="Menu" src="_res/assets/start.png" alt="Hauptmenü"/></a>
+        <a href="index.html"><img class="Menu" src="_res/assets/menu.png" alt="Spielmenü"/></a>
+  <!--    <img id="icon" class="sampleIcon"/>-->
         <h1>CheckURJava</h1>
+        <h2 id="score">Punktzahl:</h2>
         </header>
-         <div id="samples" class="collappsed">
+    <!--     <div id="samples" class="collappsed">
 		<ul id="sample-list" class="list">
-		</ul>
-	   </div> 
-
-        <div id="code" >Dein Code: <button type="button" id="run" onclick="runCode()">Testen</button><div id = "drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
-
+		</ul>-->
+	   </div>
+        <div id="code" >Dein Code: <button type="button" id="run" onclick="runCode()">Deinen Code testen</button><button type="button" id="delete" onclick="deleteCode()">Deinen Code löschen</button><div id = "drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
         <div id="cr-stage"></div>
-
       <ul id="input">
-        <li>Bedingungen
+        <li>Abfragen
           <ul>
-            <li><div id="if" draggable="true" ondragstart="drag(event)">wenn()</div></li>
+            <li><div id="if" draggable="true" ondragstart="drag(event)">falls</div></li>
           </ul>
         </li>
         <li>Schleifen
@@ -41,8 +39,8 @@
         </li>
         <li>Aktionen
           <ul>
-            <li><div id="move" draggable="true" ondragstart="drag(event)">geh 1 Schritt</div></li>
-            <li><div id="turn" draggable="true" ondragstart="drag(event)">dreh dich rechts</div></li>
+            <li><div id="move" draggable="true" ondragstart="drag(event)">Geh 1 Schritt</div></li>
+            <li><div id="turn" draggable="true" ondragstart="drag(event)">Dreh dich rechts</div></li>
           </ul>
         </li>
         <li>Bedingungen
@@ -54,16 +52,12 @@
         </li>
       </ul>
     </body>
-<<<<<<< HEAD
-=======
-    
+
   <script src="../_libs/jquery-2.1.4.js"></script>
-  <script src="../_libs/pouchdb-4.0.1.min.js"></script> 
+  <script src="../_libs/pouchdb-4.0.1.min.js"></script>
   <script src="../_libs/underscore.js"></script>
   <script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
-    
-    
->>>>>>> origin/master
+
   <script src="_src/Game.js"></script>
   <script src="_src/Components.js"></script>
   <script src="_src/Scenes.js"></script>
@@ -71,22 +65,12 @@
   <script src="_src/Compiler.js"></script>
   <script src="_src/dragAndDrop.js"></script>
   <script src="_src/CheckURJava.js"></script>
-    
-  <script src="../_src/DatabaseController.js"></script>
-  <script src="../_src/Sample.js"></script>    
 
+  <script src="../_src/DatabaseController.js"></script>
 
 	<script>
         $(function() {
             CheckURJava.init();
         });
 	</script>
-    <script id="sampleTemplate" type="text/template">
-	    <li>
-            <span class="title"><%= title %></span>
-            <img class="<%= className %>" title="<%= title %>" src="<%= url %>" data-src="<%= dataUrl %>"/>
-        </li>
-    </script>
-
-
 </html>

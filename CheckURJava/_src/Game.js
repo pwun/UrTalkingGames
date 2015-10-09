@@ -1,4 +1,5 @@
 Game = {
+
   // This defines our grid's size and the size of each of its tiles
   map_grid: {
     width:  32,
@@ -24,19 +25,19 @@ Game = {
   },
 
   // Initialize and start our game
-  start: function() {
+  start: function(levelNum) {
 
-    /*Crafty.paths({ assets: "../_res/assets/"});
+    Crafty.sprite(128, "_res/assets/spritemap.png", {
+      spr_player : [ 0, 0 ],
+      spr_target:  [ 1, 0 ]
+    });
 
-    Crafty.load("assets":{"arrow":["arrow.png"]}, function(){
-      Crafty.sprite("arrow", {spr_player:[0,0]});
-    });*/
 
     // Start crafty and set a background color so that we can see it's working
-    Crafty.init(Game.width(), Game.height());
-    Crafty.background('rgb(249, 223, 125)');
+    /*Crafty.init(Game.width(), Game.height());
+    Crafty.background('rgb(249, 223, 125)');*/
 
-    // Place a tree at every edge square on our grid of 16x16 tiles
+    // Place a obstacle at every edge square on our grid of 16x16 tiles
     for (var x = 0; x < Game.map_grid.width; x++) {
       for (var y = 0; y < Game.map_grid.height; y++) {
         var at_edge = x == 0 || x == Game.map_grid.width - 1 || y == 0 || y == Game.map_grid.height - 1;
@@ -47,6 +48,6 @@ Game = {
         }
       }
     }
-    loadLevel(1);
+    loadLevel(levelNum);
   }
 }

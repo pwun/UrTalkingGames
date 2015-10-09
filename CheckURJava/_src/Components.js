@@ -27,36 +27,25 @@ Crafty.c('Obstacle', {
   },
 });
 
+
 Crafty.c('Player', {
   init: function() {
-    this.requires('2D, Canvas, Grid, Color, Collision, Fourway')
+    this.requires('2D, Canvas, Grid, Collision, Fourway, spr_player')
     .attr({w: Game.map_grid.tile.width - 4 ,h: Game.map_grid.tile.height -4})
-    .color('rgb(255, 0, 102)')
     .fourway(4)
     .origin("center")
     .onHit('Solid', function(){
-      console.log("You crashed!");
+      Crafty.scene('Lost');
     })
     .onHit('Win', function(){
-      console.log("You won!");
+      Crafty.scene('Victory');
     });
-    //.frontIsClear();
   },
-
-  // Stops the movement
-  /*stopMovement: function() {
-    console.log("You crashed!");
-    return this;
-  }*/
-
-/*  frontIsClear: function(){
-    return true;
-  }*/
 });
 
 Crafty.c('Target', {
   init: function() {
-    this.requires('2D, Canvas, Grid, Color, Win')
-    this.color('rgb(102, 255, 153)');
+    this.requires('2D, Canvas, Grid, Win, spr_target')
+    .attr({w: Game.map_grid.tile.width ,h: Game.map_grid.tile.height});
   },
 });

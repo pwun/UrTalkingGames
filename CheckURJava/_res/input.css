@@ -1,6 +1,9 @@
 #input div{
   background-color: white;
   display: inline-table;
+  border-radius: 5px;
+  border: 1px solid orange;
+  color:orange;
 }
 
 #input ul
@@ -13,19 +16,29 @@ list-style-type: none;
 
 #input ul li div
 {
-text-decoration: none;
-margin-right: 5px;
+  text-decoration: none;
+  margin: 5px;
+  padding: 5px;
 }
 
 #input {
     background-color: #dadada;
     padding:10px;
     margin:0;
+    margin-top: 5px;
     list-style-type:none;
-    width:68%;
-    height: 100px;
+    width:69%;
+    height: 130px;
+    border-radius: 5px;
 }
 #input li {
-    width:25%;
     float:left;
+    border-left: 1px solid black;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+#input ul li{
+  border-left: none;
 }

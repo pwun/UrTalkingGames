@@ -3,10 +3,7 @@ var CheckURJava = (function() {
         canvas,
 
     init = function() {
-        Game.start();
-        SamplesView.init();
-        DatabaseController.init();
-        
+        Crafty.scene('MainMenu');
     };
     that.init = init;
     return that;
