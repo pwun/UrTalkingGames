@@ -5,7 +5,7 @@ Game = (function() {
         
     init = function() {
         var turotialYetActivated = false;
-        $('#logo').on('click', function(){ location.reload();});
+        $('#logo').on('click', function(){   window.open("../index.html", '_self', false);});
         $('#newGame').on('click', function(){ location.reload();});
       
         $('#buttonTutorial').on('click', function(){ 
