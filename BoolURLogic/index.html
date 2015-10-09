@@ -5,6 +5,7 @@
         <title>URGaming - Bool UR Logic</title> 
         <link rel="stylesheet" href="_res_BURL/css/commonstyle.css">
         <link rel="stylesheet" href="../_res/_css/gridiculous.css">
+        <link rel="stylesheet" href="../_res/_css/samples.css">
 		 
     </head>
     
@@ -17,20 +18,20 @@
                 <button class="buttonBURL c2" id="newGame">Neues Spiel</button>
             </div>
         </header>
-        <nav class="row c3">Menue
-                <ul>
-                    <li id="el1">CheckURJava</li>
-                    <li id="el2">DesignURChar</li>
-                    <li id="el3">ProoveURselfGoogle</li>
-                </ul>
-        </nav>
+       
+        <div id="samples" class="collappsed">
+		<ul id="sample-list" class="list">
+		</ul>
+	   </div>
+        
         <div class="row c6 s2">
             <img id="help" class="hide" src="_res_BURL/help.jpg" alt="#tutorial#"/>
         </div>
-        <div id="game" class="c8 s1">
+        <div id="game" class="c8 s1 right">
                 <h2 class="row">Ziehe die Logik Gatter in die Lücken</h2>
                 <div id="canvas">
-                    <img id="icon" alt="icon" class="icon scale rotation right" src="../_res/_img/basic_icon.png">
+                    <img id="icon"  src="../_res/_img/basic_icon.png" class="icon scale rotation right" >
+                    
                     
                     <!--Canvas of level one-->
                     <div class="hide" id="level1">
@@ -295,8 +296,10 @@
     <script src="_src/levelManager.js"></script>
     <script src="_src/winChecker.js"></script>
     <script src="../_src/DatabaseController.js"></script>
+    <script src="../_libs/underscore.js"></script>  
 	<script src="../_libs/jquery-2.1.4.js"></script>  
     <script src="../_libs/pouchdb-4.0.1.min.js"></script>
+    <script src="../_src/Sample.js"></script>
 
 
 	<script>
@@ -304,6 +307,12 @@
             BoolURLogic.init();
         });
 	</script>
+    <script id="sampleTemplate" type="text/template">
+	    <li>
+            <span class="title"><%= title %></span>
+            <img class="<%= className %>" title="<%= title %>" src="<%= url %>" data-src="<%= dataUrl %>"/>
+        </li>
+    </script>
     
     
 </html>

@@ -3,13 +3,10 @@ var CheckURJava = (function() {
         canvas,
 
     init = function() {
-        console.log("CheckURJava init");
-        /*canvas = document.getElementById('canvas');
-
-        canvas.height = (canvas.width/16)*9;
-        console.log(canvas.width);
-        console.log(canvas.height);*/
         Game.start();
+        SamplesView.init();
+        DatabaseController.init();
+        
     };
     that.init = init;
     return that;

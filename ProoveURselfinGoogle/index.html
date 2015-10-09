@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>URGaming</title> 
-         <link rel="stylesheet" href="../_res/_css/commonstyle.css">
+         <link rel="stylesheet" href="_res/boolstyle.css">
         <link rel="stylesheet" href="../_res/_css/gridiculous.css">
-
+        <link rel="stylesheet" href="../_res/_css/samples.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> 
 		 
     </head>
@@ -13,10 +13,15 @@
     <body>
         <header class="row">
         <img id="logo" src="../_res/_img/logo.png" alt="#LOGO#" class="c3"/>
+        <img id="icon" class="sampleIcon" />
         <h1 class="c3 s2">ProveURSelf</h1>
         </header>
 
         <article>
+            <div id="samples" class="collappsed">
+		<ul id="sample-list" class="list">
+		</ul>
+	   </div>  
             <div class="row">
                 <div id="browser">
                     <object id="canvas" class="c5 s3" width="525" height="245" data=http://www.bing.de> <embed id="embed" src=http://www.bing.de width="600" height="400"> </embed> Error: Embedded data could not be displayed. </object>
@@ -58,9 +63,16 @@
         
         
     </body>
+    <script src="../_libs/jquery-2.1.4.js"></script>  
+    <script src="../_libs/pouchdb-4.0.1.min.js"></script>
+    <script src="../_libs/underscore.js"></script>
     <script src="_src/PictureArray.js"></script>
     <script src="_src/ProveURSelf.js"></script>   
-	<script src="../_libs/jquery-2.1.4.js"></script>  
+
+    <script src="../_src/DatabaseController.js"></script>
+    <script src="../_src/Sample.js"></script>
+
+	
 
 
 	<script>
@@ -68,6 +80,11 @@
             ProveURSelf.init();
         });
 	</script>
-    
+    <script id="sampleTemplate" type="text/template">
+	    <li>
+            <span class="title"><%= title %></span>
+            <img class="<%= className %>" title="<%= title %>" src="<%= url %>" data-src="<%= dataUrl %>"/>
+        </li>
+    </script>
     
 </html>

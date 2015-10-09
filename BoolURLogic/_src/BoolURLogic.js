@@ -5,6 +5,7 @@ var BoolURLogic = (function() {
     init = function() { 
         
         Game.init(); 
+        SamplesView.init();
         DatabaseController.init();
         
          

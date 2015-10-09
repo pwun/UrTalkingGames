@@ -3,6 +3,7 @@ var Home = (function() {
          
         
     init = function() {
+        $('#prooveCover').on('click', _handleClick);
         $('#el1').on('click', _handleClick);
         $('#el2').on('click', _handleClick);
         $('#el3').on('click', _handleClick);
@@ -19,6 +20,9 @@ var Home = (function() {
                 break;
             case 'el3':
                 window.open("BoolURLogic/index.html", '_self', false);
+                break;
+            case 'prooveCover':
+                window.open("ProoveURselfinGoogle/index.html", '_self', false);
                 break;
              
         }
