@@ -52,9 +52,9 @@ winChecker = (function() {
     },
     
     doWin = function(){
-        $("#iconBURL").removeClass("scale").removeClass("rotation").addClass("iconawake");
+        $("#icon").removeClass("scale").removeClass("rotation").addClass("iconawake");
         setTimeout(function(){
-            $("#iconBURL").removeClass("iconawake").addClass("rotation").addClass("scale");
+            $("#icon").removeClass("iconawake").addClass("rotation").addClass("scale");
             levelChecker.setLevel(++currentLevel);
         }, 2000);
         $("#winString").show();
