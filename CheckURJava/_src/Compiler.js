@@ -1,12 +1,21 @@
-var _dir = "e";
-var _step = 50; // width/height tile
+//var _dir = "e";
+var _step = Game.width()/32;
+var counters = new Array();// = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12','c13','c14','c15','c16','c17','c18','c19','c20'];
+var countersCounter = 0;
+//var moveStatement = "Player.move('e',"+ _step +");";
 
 function runCode(){
 
+  for(i = 0; i< 100;i++){
+    counters[i] = "c"+i;
+  }
   console.log("Run Code");
   var array = new Array();
   //Init Player at the upper left corner of the level
-  var codeToCompile = "var Player = Crafty.e('Player').at(1,1);";
+  var codeToCompile = "function won(){return Player.intersect(Crafty('Target'));}"+
+  "function frontIsClear(){var b = true; switch(dir){case 'n':Crafty('Obstacle').each(function() {if(this.intersect(Player.x, Player.y-10, Player.w, Player.h)){b = false;}});break;case 'e':Crafty('Obstacle').each(function() {if(this.intersect(Player.x+10, Player.y, Player.w, Player.h)){b = false;}});break;case 's':Crafty('Obstacle').each(function() {if(this.intersect(Player.x, Player.y+10, Player.w, Player.h)){b = false;}});break;case 'w':Crafty('Obstacle').each(function() {if(this.intersect(Player.x-10, Player.y, Player.w, Player.h)){b = false;}});break;}return b;}"
++"function turn(){switch (dir) {case 'n':dir = 'e';break;case 'e':dir = 's';break;case 's':dir = 'w';break;case 'w':dir = 'n';break;}}"+
+  "var Player = Crafty.e('Player').at(1,1);var dir = 'e';";
 
   $('#drop').children().each(function(){
     array.push($(this).attr('class'));
@@ -74,7 +83,8 @@ function _for(segment){
   code = writeCode(segment.find(".input:first"));
   statement = parseInt(segment.find(".numberInput").val(),10);
   console.log("statement: "+statement);
-  return "for(i = 0; i < "+statement+";i++){"+code+"}";
+  countersCounter++;
+  return "for("+counters[countersCounter]+" = 0; "+counters[countersCounter]+" < "+statement+";"+counters[countersCounter]+"++){"+code+"}";
 }
 
 function _while(segment){
@@ -83,10 +93,13 @@ function _while(segment){
   console.log("statement: "+statement);
   switch (statement) {
     case "frontIsClear":
-      return "while(Player.frontIsClear()){"+code+"}";
+      return "while(frontIsClear()){"+code+"}";
       break;
     case "frontIsBlocked":
-      return "while(! Player.frontIsBlocked()){"+code+"}";
+      return "while(! frontIsClear()){"+code+"}";
+      break;
+    case "notTarget":
+      return "while(! won()){"+code+"}";
       break;
     default:
     return "";
@@ -100,10 +113,13 @@ function _if(segment){
   switch (statement) {
     case "frontIsClear":
       console.log("if(Player.frontIsClear(){"+code+"}");
-      return "if(Player.frontIsClear()){"+code+"}";
+      return "if(frontIsClear()){"+code+"}";
       break;
     case "frontIsBlocked":
-      return "if(! Player.frontIsBlocked()){"+code+"}";
+      return "if(! frontIsClear()){"+code+"}";
+      break;
+    case "notTarget":
+      return "if(! won()){"+code+"}";
       break;
     default:
     return "";
@@ -111,32 +127,18 @@ function _if(segment){
 }
 
 function _move(){
-
     //Global Timeout missing
   //return "setTimeout(function() { Player.move('"+_dir+"',"+ _step +"); }, 1000);";
-  return "Player.move('"+_dir+"',"+ _step +");";//" }, 1000);";
-
-
+  return "Player.move(dir,"+ _step +");";//" }, 1000);";
 }
 
 function _turn(){
-  switch (_dir) {
-    case "n":
-      _dir = "e";
-      break;
-    case "e":
-      _dir = "s";
-      break;
-    case "s":
-      _dir = "w";
-      break;
-    case "w":
-      _dir = "n";
-      break;
-  }
-  return "Player.rotation+=90;";
+  return "Player.rotation+=90;turn();";
 }
 
+
+
+//Crafty('Obstacle').each(function() {if(this.intersect(Player.x -20, Player.y, 30,30)){alert('hello');this.move('e',50);}});
 
 /*
 //Execute F whenever I want:

@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>URGaming - CheckURJava</title>
+        <script src="_lib/crafty.js"></script>
         <link rel="stylesheet" href="_res/style.css">
         <link rel="stylesheet" href="_res/canvas.css">
         <link rel="stylesheet" href="_res/input.css">
@@ -42,11 +43,11 @@
           <ul>
             <li><div id="frontClear" draggable="true" ondragstart="drag(event)">vorne frei</div></li>
             <li><div id="frontBlocked" draggable="true" ondragstart="drag(event)">vorne blockiert</div></li>
+            <li><div id="notTarget" draggable="true" ondragstart="drag(event)">nicht im Ziel</div></li>
           </ul>
         </li>
       </ul>
     </body>
-  <script type="text/javascript" src="https://rawgithub.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
   <script src="_src/Game.js"></script>
   <script src="_src/Components.js"></script>
   <script src="_src/Scenes.js"></script>

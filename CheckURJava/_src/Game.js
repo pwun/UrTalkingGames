@@ -19,9 +19,7 @@ Game = {
   // The total height of the game screen. Since our grid takes up the entire screen
   //  this is just the height of a tile times the height of the grid
   height: function() {
-    if(window.innerHeight > 650){
-      this.map_grid.tile.height = (window.innerHeight - 260)/16;
-    }
+    this.map_grid.tile.height = this.map_grid.tile.width;
     return this.map_grid.height * this.map_grid.tile.height;
   },
 

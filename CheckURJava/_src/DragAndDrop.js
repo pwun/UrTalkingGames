@@ -31,6 +31,9 @@ function drop(event) {
       case 'frontBlocked':
         e = $("<div class='frontIsBlocked'>vorne blockiert<div>");
         break;
+      case 'notTarget':
+        e = $("<div class='notTarget'>nicht im Ziel<div>");
+        break;
 
       default:
 

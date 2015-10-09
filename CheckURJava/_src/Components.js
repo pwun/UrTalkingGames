@@ -22,24 +22,23 @@ Crafty.c('Grid', {
 Crafty.c('Obstacle', {
   init: function() {
     this.requires('2D, Canvas, Grid, Color, Solid')
-    this.color('rgb(255, 153, 0)')
-    this.attr({
-      w: 32,
-      h:32
-    });
+    .attr({w: Game.map_grid.tile.width - 4 ,h: Game.map_grid.tile.height -4})
+    .color('rgb(255, 153, 0)');
   },
 });
 
 Crafty.c('Player', {
   init: function() {
-    this.requires('2D, Canvas, Grid, Color, Solid')
-    this.color('rgb(255, 0, 102)')
-    this.attr({
-            w: 32,
-            h: 32
-            })
-    this.onHit('Solid', function(){
+    this.requires('2D, Canvas, Grid, Color, Collision, Fourway')
+    .attr({w: Game.map_grid.tile.width - 4 ,h: Game.map_grid.tile.height -4})
+    .color('rgb(255, 0, 102)')
+    .fourway(4)
+    .origin("center")
+    .onHit('Solid', function(){
       console.log("You crashed!");
+    })
+    .onHit('Win', function(){
+      console.log("You won!");
     });
     //.frontIsClear();
   },
@@ -57,7 +56,7 @@ Crafty.c('Player', {
 
 Crafty.c('Target', {
   init: function() {
-    this.requires('2D, Canvas, Grid, Color')
+    this.requires('2D, Canvas, Grid, Color, Win')
     this.color('rgb(102, 255, 153)');
   },
 });
