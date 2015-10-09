@@ -13,10 +13,10 @@ DatabaseController = (function () {
         
     saveImage = function(newNickName,newDataUrl) {
         var img = {
-            _id:new Date().toISOString(),
-            nickname: newNickName,
+            _id:newNickName,//new Date().toISOString(),
+            //nickname: newNickName,
             dataUrl: newDataUrl
-        }
+        };
         db.put(img, function callback(err,res) {
         if(!err){ 
            retrieveElements();
@@ -30,7 +30,7 @@ DatabaseController = (function () {
         SamplesView.resetView();
         db.allDocs({include_docs: true, descending:false},      function(err,doc){
         for(var i=0;i<doc.rows.length;i++) {
-               SamplesView.appendItem(doc.rows[i].doc.nickname, doc.rows[i].doc.dataUrl);
+               SamplesView.appendItem(doc.rows[i].doc._id, doc.rows[i].doc.dataUrl);
             }
             
             

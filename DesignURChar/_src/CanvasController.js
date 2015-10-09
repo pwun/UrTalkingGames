@@ -90,7 +90,7 @@ DesignURChar.CanvasController = (function () {
             b = Math.abs(b);
             var sum = (a*a)+(b*b);
              
-            return Math.sqrt(sum);
+            return Math.round(Math.sqrt(sum));
             
         },
         /** Setter-Methoden für Canvas-Parameter */

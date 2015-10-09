@@ -1,7 +1,7 @@
 DesignURChar.UIController = (function () {
     var that = {},
         canvasController,
-        colors,menu,
+        colors, 
 
         init = function (newCanvasController) {
             canvasController = newCanvasController;
@@ -47,6 +47,7 @@ DesignURChar.UIController = (function () {
                     if(nickname!=""){
                         DatabaseController.saveImage(nickname,canvasController.getDataUrl());
                         canvasController.clearCanvas();
+                        $('#nicknameInput').val("")
                         
                     } else {
                         alert("Please enter a nickname before saving... :)");

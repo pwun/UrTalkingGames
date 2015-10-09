@@ -18,18 +18,21 @@ DesignURChar.ConsoleController = (function () {
             userConsole.append("myRect.setHeight('"+h+"');<br/>");
             userConsole.append("myRect.setXPosition('"+x+"');<br/>");
             userConsole.append("myRect.setYPosition('"+y+"');<br/>");
+            userConsole.append("myRect.draw();<br/>");
             
          },
         onCircleCreated = function(x,y,rad) {
             userConsole.append("myCircle.setRadius('"+rad+"');<br/>");
             userConsole.append("myCircle.setXPosition('"+x+"');<br/>");
             userConsole.append("myCircle.setYPosition('"+y+"');<br/>");
+            userConsole.append("myCircle.draw();<br/>");
             
         },
         onStarCreated = function(x,y,size){
             userConsole.append("myStar.setSize('"+size+"');<br/>");
             userConsole.append("myStar.setXPosition('"+x+"');<br/>");
             userConsole.append("myStar.setYPosition('"+y+"');<br/>");
+            userConsole.append("myStar.draw();<br/>");
         },
         onLineCreated = function(x,y,color){
             userConsole.text("");

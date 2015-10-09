@@ -27,9 +27,7 @@ button {
     background: #dadada;
 
 }
-#toolbox {
  
-  }
 
 #toolbox .shape {
     width:40px;
@@ -81,19 +79,21 @@ button {
 #colors .color.black {
   background-color:#000000;
 }
+ 
 #shapes .shape.star{
     background-image: url(star.png);
 }
 #shapes .shape.rect{
      width: 40px;
-    height: 40px;    background: #7fee1d;
+    height: 40px;    
+    background: #FFB428;
 
 }
 
 #shapes .shape.circle {
     width: 40px;
     height: 40px;
-    background: #7fee1d;
+    background: #FFB428;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;
